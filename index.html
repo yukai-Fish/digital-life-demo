@@ -545,6 +545,118 @@
       font-size: 14px;
     }
 
+    .memory-detail {
+      margin-top: 8px;
+      color: #c4d6ea;
+      line-height: 1.7;
+      min-height: 78px;
+      font-size: 13px;
+    }
+
+    .memory-detail strong {
+      color: #d8ecff;
+      font-weight: 700;
+    }
+
+    .builder-shell {
+      border: 1px solid rgba(118, 183, 241, 0.24);
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(8, 18, 35, 0.86), rgba(5, 11, 22, 0.92));
+      padding: 16px;
+    }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .builder-card {
+      border: 1px solid rgba(114, 179, 239, 0.22);
+      border-radius: 12px;
+      background: rgba(5, 12, 24, 0.8);
+      padding: 12px;
+      min-height: 166px;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .builder-card.wide {
+      grid-column: 1 / -1;
+      min-height: auto;
+    }
+
+    .builder-card h3 {
+      margin: 0;
+      font-size: 15px;
+      color: #d8edff;
+    }
+
+    .builder-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .builder-field label {
+      font-size: 12px;
+      color: #a7c4e2;
+    }
+
+    .builder-field input,
+    .builder-field select {
+      border-radius: 10px;
+      border: 1px solid rgba(120, 184, 241, 0.24);
+      background: rgba(3, 9, 18, 0.84);
+      color: #d9e8f9;
+      padding: 9px 10px;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .builder-upload {
+      border: 1px dashed rgba(123, 186, 245, 0.34);
+      border-radius: 10px;
+      background: rgba(7, 18, 35, 0.72);
+      color: #cde3f7;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .builder-muted {
+      margin: 0;
+      color: #9cb8d5;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .builder-status {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #a7c8e5;
+      border: 1px dashed rgba(120, 184, 241, 0.3);
+      background: rgba(6, 14, 28, 0.7);
+      border-radius: 10px;
+      padding: 9px 11px;
+    }
+
+    .builder-status.recording {
+      color: #ffd2d8;
+      border-color: rgba(255, 110, 129, 0.6);
+      background: rgba(72, 18, 30, 0.45);
+    }
+
+    .builder-result {
+      margin-top: 10px;
+      border: 1px solid rgba(121, 188, 247, 0.24);
+      border-radius: 12px;
+      background: rgba(7, 17, 34, 0.75);
+      color: #cde2f7;
+      font-size: 13px;
+      line-height: 1.75;
+      padding: 10px 12px;
+    }
+
     .lab-top {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -829,16 +941,13 @@
       font-size: 12px;
     }
 
-    .memory-detail {
-      min-height: 74px;
-      margin-top: 8px;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
     @media (max-width: 1080px) {
       .module-grid {
         grid-template-columns: 1fr;
+      }
+
+      .builder-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .profile-top {
@@ -875,6 +984,10 @@
       }
 
       .chat-form {
+        grid-template-columns: 1fr;
+      }
+
+      .builder-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -941,6 +1054,10 @@
       background: rgba(6, 14, 28, 0.7);
       border-radius: 10px;
       padding: 10px 12px;
+    }
+
+    .sample-status:empty {
+      display: none;
     }
 
     .sample-status.recording {
@@ -1194,9 +1311,10 @@
         </a>
         <nav class="nav-links">
           <a href="#features">能力</a>
+          <a href="#scenarios">场景</a>
           <a href="#process">流程</a>
           <a href="#lab">体验</a>
-          <a href="#contact">合作</a>
+          <a href="#builder">生成</a>
         </nav>
         <a class="btn primary" href="#lab">开始演示</a>
       </div>
@@ -1252,7 +1370,7 @@
         <article class="feature-card reveal">
           <div class="icon-chip">🗂️</div>
           <h3>记忆</h3>
-          <p>将口述历史、日记、聊天记录、家书等资料结构化，形成时间线记忆图谱，让故事可检索、可追溯、可扩展。</p>
+          <p>把口述历史、日记、家书等资料整理成清晰时间线，用户可以按主题快速找到想了解的那段故事。</p>
         </article>
         <article class="feature-card reveal">
           <div class="icon-chip">🎙️</div>
@@ -1267,31 +1385,60 @@
       </div>
     </section>
 
+    <section id="scenarios">
+      <div class="block-title">
+        <h2>应用场景</h2>
+        <p>这不是开发工具页面，而是面向实际用户的体验平台。你可以按场景快速判断价值。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <div class="icon-chip">🏠</div>
+          <h3>家庭纪念</h3>
+          <p>为家属保留长辈声音、故事和互动问答，让下一代可以“听见记忆”。</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon-chip">🏛️</div>
+          <h3>展馆讲解</h3>
+          <p>把人物故事做成可对话讲解员，观众可按兴趣追问关键历史节点。</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon-chip">🏫</div>
+          <h3>学校与社区</h3>
+          <p>用于家风教育、地方文化活动与口述史课程，增强参与感和传播力。</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon-chip">🎬</div>
+          <h3>文旅内容</h3>
+          <p>作为文旅 IP 内容入口，快速产出故事讲述与互动短视频脚本素材。</p>
+        </article>
+      </div>
+    </section>
+
     <section id="process">
       <div class="block-title">
-        <h2>创建流程</h2>
-        <p>从原始素材到可交互展示，四步构建数字生命 Demo，适合项目路演、展厅和文旅内容演示。</p>
+        <h2>制作步骤</h2>
+        <p>从用户上传资料到得到可体验数字人，流程清晰、结果明确。</p>
       </div>
       <div class="process-grid">
         <article class="step-card">
           <div class="step-no">1</div>
-          <h3>采集</h3>
-          <p>收集照片、旧影像、口述录音、年代表与故事要点，完成“家族故事”或“人物故事”基础库。</p>
+          <h3>上传资料</h3>
+          <p>上传照片、文字故事与语音样本，形成人物基础信息。</p>
         </article>
         <article class="step-card">
           <div class="step-no">2</div>
-          <h3>训练</h3>
-          <p>训练形象与声音模型，建立记忆索引，定义人物口吻、表达偏好和历史事实边界。</p>
+          <h3>整理记忆</h3>
+          <p>把资料归纳为可检索的“记忆主题”，并设置可追问的问题方向。</p>
         </article>
         <article class="step-card">
           <div class="step-no">3</div>
-          <h3>生成</h3>
-          <p>生成回忆录段落、故事短视频脚本与数字人互动样例，形成可演示的内容包和页面。</p>
+          <h3>生成数字人</h3>
+          <p>生成人物形象、声音风格与预设对话内容，得到可展示的首版形态。</p>
         </article>
         <article class="step-card">
           <div class="step-no">4</div>
-          <h3>交互</h3>
-          <p>在前端演示页中集成“形象+记忆+声音+对话”，现场即可体验“可对话的数字生命”。</p>
+          <h3>上线体验</h3>
+          <p>用户可直接浏览、播放、提问与回看记忆，验证数字生命的真实体验效果。</p>
         </article>
       </div>
     </section>
@@ -1299,11 +1446,58 @@
     <section id="lab">
       <div class="block-title">
         <h2>数字生命交互台</h2>
-        <p>面向家属纪念、展馆讲解与文旅策划的产品体验台。每位虚拟人都在同一版面展示形象、简介、记忆、声音、对话。</p>
+        <p>演示样例区仅用于展示效果：每位虚拟人都在同一版面展示形象、简介、记忆、声音、对话。</p>
       </div>
 
       <div class="lab-shell">
         <div id="personaGrid" class="persona-grid"></div>
+      </div>
+    </section>
+
+    <section id="builder">
+      <div class="block-title">
+        <h2>我的数字人体验</h2>
+        <p>上传你的资料并录制声音样本，体验“从信息到数字人”的演示流程。</p>
+      </div>
+      <div class="builder-shell">
+        <div class="builder-grid">
+          <article class="builder-card">
+            <h3>1. 基础信息</h3>
+            <div class="builder-field">
+              <label for="builderName">人物称呼</label>
+              <input id="builderName" type="text" placeholder="例如：外公 / 张老师" />
+            </div>
+            <div class="builder-field">
+              <label for="builderUse">使用场景</label>
+              <select id="builderUse">
+                <option value="家庭纪念">家庭纪念</option>
+                <option value="展馆讲解">展馆讲解</option>
+                <option value="学校活动">学校活动</option>
+                <option value="文旅内容">文旅内容</option>
+              </select>
+            </div>
+          </article>
+          <article class="builder-card">
+            <h3>2. 上传资料</h3>
+            <p class="builder-muted">支持照片、文字与音频文件（演示版仅统计数量）。</p>
+            <input id="builderUpload" class="builder-upload" type="file" multiple accept=".jpg,.jpeg,.png,.webp,.txt,.md,.wav,.mp3,.m4a" />
+            <div id="builderUploadSummary" class="builder-status">尚未上传资料。</div>
+          </article>
+          <article class="builder-card">
+            <h3>3. 录制声音样本</h3>
+            <div class="voice-actions" style="margin-top:6px;">
+              <button type="button" class="btn ghost" id="builderRecordBtn">开始录制</button>
+              <button type="button" class="btn primary" id="builderPlayBtn">播放样本</button>
+            </div>
+            <div id="builderRecordStatus" class="builder-status">尚未录制声音样本。</div>
+            <audio id="builderAudio" preload="auto"></audio>
+          </article>
+          <article class="builder-card wide">
+            <h3>4. 生成体验预览</h3>
+            <button type="button" class="btn primary" id="builderGenerateBtn">生成我的数字人预览</button>
+            <div id="builderResult" class="builder-result">填写基础信息后可生成预览。</div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -1328,19 +1522,25 @@
         quickAsks: ["您第一份工作是什么？", "当年最难忘的一次工程经历？", "给后辈一句建议吧"],
         memories: [
           {
-            title: "《汉江大桥建设笔记》",
-            meta: "工程手记 · 28页 · 已结构化",
-            detail: "记录了1968-1972年的工程细节，包括工地分工、天气事件和关键抢修时刻，可在对话中按年份追问。"
+            title: "汉江大桥建设",
+            meta: "28页生命手记",
+            summary: "从雨季暴涨的江水到深夜不灭的焊花，这段记忆完整记录了抢修现场的节奏、分工与每一次咬牙坚持的关键时刻。",
+            purpose: "帮助用户快速理解那个年代工程工作的真实难度和协作方式。",
+            ask: "可问：抢修最艰难的一天发生了什么？"
           },
           {
-            title: "老车站口述录音",
-            meta: "磁带转录 · 51分钟 · 去噪完成",
-            detail: "保留了王建国的叙述节奏，适合作为数字人声音样本，并用于生成“老站台记忆”短视频脚本。"
+            title: "老车站工作岁月",
+            meta: "51分钟生命录音",
+            summary: "从第一次背着行李离家，到站台晨昏交替的日常，这段记忆讲的是一个年轻人如何在陌生城市里慢慢站稳脚跟。",
+            purpose: "帮助家属和观众理解人物职业选择背后的时代背景。",
+            ask: "可问：第一次离家工作时，心里最担心什么？"
           },
           {
-            title: "家庭迁居相册",
-            meta: "照片 · 86张 · 人物关系标注",
-            detail: "系统已关联家庭成员昵称和年代地点，用户点击照片后可以听到“当年为什么搬家”的完整故事线。"
+            title: "家庭迁居故事",
+            meta: "约3200字生命回忆",
+            summary: "围绕“为什么搬、怎么搬、搬后如何重建生活”，这段记忆把一家人的犹豫、分工与重新出发的勇气娓娓道来。",
+            purpose: "帮助后代了解家庭转折点，形成清晰的家族记忆线索。",
+            ask: "可问：那一年为什么决定搬家？"
           }
         ],
         replies: [
@@ -1398,19 +1598,25 @@
         quickAsks: ["您教书时最喜欢的一届学生？", "家里过年有什么传统？", "想对孙辈说什么？"],
         memories: [
           {
-            title: "《乡村课堂日记》",
-            meta: "教学日记 · 42页 · OCR完成",
-            detail: "整理了1975-1992年的课堂片段和学生故事，支持按“年份/班级/事件”检索并口述重现。"
+            title: "乡村课堂故事",
+            meta: "42页教学回忆",
+            summary: "粉笔灰、木课桌和孩子们亮晶晶的眼神都在这段记忆里，它讲述了平凡课堂中一点点改变人生的力量。",
+            purpose: "帮助观众理解教育初心，看到普通课堂中的长期影响。",
+            ask: "可问：最难忘的一届学生为什么特别？"
           },
           {
-            title: "家书与明信片",
-            meta: "书信 · 133封 · 主题已分类",
-            detail: "系统将家书分为“求学、婚后、育儿、晚年”四类，适合自动生成回忆录章节和情感向讲述文案。"
+            title: "家书往来",
+            meta: "133封家书摘录",
+            summary: "一封封家书把求学、婚后、育儿到晚年的日子串成线，字里行间既有牵挂，也有一个家庭慢慢成熟的温度。",
+            purpose: "帮助家庭成员看见不同阶段的关系与情感表达。",
+            ask: "可问：哪封信最让您难忘？"
           },
           {
-            title: "节庆家宴视频",
-            meta: "家庭录像 · 17段 · 人声增强",
-            detail: "已提取家族称呼和常用口头禅，用于对话时的亲切表达，让数字人更像真实家中长辈。"
+            title: "节庆家宴记忆",
+            meta: "17段家宴影像",
+            summary: "从除夕备菜到围桌守岁，这段记忆不仅有家宴的热闹，更有长辈一句句叮咛如何在代际之间被温柔地传下去。",
+            purpose: "帮助晚辈理解家风如何通过日常习惯传承下来。",
+            ask: "可问：家里过年最有仪式感的传统是什么？"
           }
         ],
         replies: [
@@ -1463,12 +1669,6 @@
         key,
         {
           voicePlaying: false,
-          recordedSample: null,
-          mediaRecorder: null,
-          recordStream: null,
-          recordChunks: [],
-          recordingStartedAt: 0,
-          recordTimer: null,
           demoRunId: 0,
           replyCursor: 0,
           ui: null
@@ -1511,31 +1711,12 @@
       setTimeout(() => portrait.classList.remove("talking"), 850);
     }
 
-    function cleanupRecordStream(state) {
-      if (!state.recordStream) return;
-      state.recordStream.getTracks().forEach((track) => track.stop());
-      state.recordStream = null;
-    }
-
-    function updateSampleStatus(key, text, isRecording = false) {
-      const ui = stateByKey[key].ui;
-      ui.sampleStatus.textContent = text;
-      ui.sampleStatus.classList.toggle("recording", isRecording);
-    }
-
     function syncVoiceSource(key) {
       const persona = personas[key];
       const state = stateByKey[key];
       const ui = state.ui;
-      if (state.recordedSample) {
-        ui.voiceMeta.textContent = `${persona.voiceLabel}（个人样本 ${state.recordedSample.durationLabel}）`;
-        ui.voiceAudio.src = state.recordedSample.url;
-        updateSampleStatus(key, `已保存个人样本（${state.recordedSample.durationLabel}），点击“播放声音样本”可回放。`);
-      } else {
-        ui.voiceMeta.textContent = persona.voiceLabel;
-        ui.voiceAudio.src = persona.audio;
-        updateSampleStatus(key, "未录制个人样本，当前使用默认声音文件。");
-      }
+      ui.voiceMeta.textContent = persona.voiceLabel;
+      ui.voiceAudio.src = persona.audio;
       ui.voiceAudio.load();
     }
 
@@ -1614,14 +1795,14 @@
           </div>
           <div class="module-grid">
             <section class="module-card">
-              <h4>简介</h4>
-              <p class="intro-text">${p.desc}</p>
-              <p class="intro-text" style="margin-top:8px;">${p.avatar}</p>
-            </section>
-            <section class="module-card">
               <h4>形象</h4>
               <p class="intro-text">定位：${p.tag}</p>
               <p class="intro-text" style="margin-top:8px;">适合用于产品讲解、展陈演示与故事化传播。</p>
+            </section>
+            <section class="module-card">
+              <h4>简介</h4>
+              <p class="intro-text">${p.desc}</p>
+              <p class="intro-text" style="margin-top:8px;">${p.avatar}</p>
             </section>
             <section class="module-card">
               <h4>记忆</h4>
@@ -1638,11 +1819,9 @@
               <div class="voice-box">
                 <div class="wave" data-role="wave">${bars}</div>
                 <div class="voice-actions">
-                  <button class="btn ghost" data-role="recordBtn" type="button">录制样本</button>
                   <button class="btn primary" data-role="playBtn" type="button">播放声音样本</button>
                 </div>
                 <div class="voice-meta" data-role="voiceMeta">${p.voiceLabel}</div>
-                <div class="sample-status" data-role="sampleStatus">未录制个人样本，当前使用默认声音文件。</div>
                 <audio data-role="voiceAudio" preload="auto"></audio>
               </div>
             </section>
@@ -1678,9 +1857,7 @@
         memoryDetail: card.querySelector("[data-role='memoryDetail']"),
         wave: card.querySelector("[data-role='wave']"),
         playBtn: card.querySelector("[data-role='playBtn']"),
-        recordBtn: card.querySelector("[data-role='recordBtn']"),
         voiceMeta: card.querySelector("[data-role='voiceMeta']"),
-        sampleStatus: card.querySelector("[data-role='sampleStatus']"),
         voiceAudio: card.querySelector("[data-role='voiceAudio']"),
         chatLog: card.querySelector("[data-role='chatLog']"),
         quickAsks: card.querySelector("[data-role='quickAsks']"),
@@ -1698,20 +1875,24 @@
         ui.rangeOutput.textContent = `当前唤醒：${start} - ${end} 人生片段`;
       }
 
+      const renderMemoryDetail = (memory) => {
+        ui.memoryDetail.innerHTML = `<strong>${memory.title}</strong><br />${memory.summary}`;
+      };
+
       ui.assetList.innerHTML = "";
       persona.memories.forEach((m, idx) => {
         const item = document.createElement("button");
         item.type = "button";
         item.className = "asset-item" + (idx === 0 ? " active" : "");
-        item.innerHTML = `<strong>${m.title}</strong><small>${m.meta}</small>`;
+        item.innerHTML = `<strong>${m.title}</strong><small>${m.meta || m.summary}</small>`;
         item.addEventListener("click", () => {
           ui.assetList.querySelectorAll(".asset-item").forEach((n) => n.classList.remove("active"));
           item.classList.add("active");
-          ui.memoryDetail.textContent = m.detail;
+          renderMemoryDetail(m);
         });
         ui.assetList.appendChild(item);
       });
-      ui.memoryDetail.textContent = persona.memories[0].detail;
+      renderMemoryDetail(persona.memories[0]);
       setQuickAsks(ui.quickAsks, persona.quickAsks);
       refreshRange();
       ui.memoryDepth.addEventListener("input", refreshRange);
@@ -1741,81 +1922,6 @@
           ui.voiceAudio.pause();
           ui.voiceAudio.currentTime = 0;
           ui.playBtn.textContent = "播放声音样本";
-        }
-      });
-
-      ui.recordBtn.addEventListener("click", async () => {
-        if (!window.MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-          addBubble(ui.chatLog, "当前浏览器不支持录音功能，请更换到较新的 Chrome/Edge 后重试。", "ai");
-          return;
-        }
-
-        if (state.mediaRecorder && state.mediaRecorder.state === "recording") {
-          state.mediaRecorder.stop();
-          return;
-        }
-
-        try {
-          stopVoicePlayback(key);
-          state.recordStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-          const mimeCandidates = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"];
-          const mimeType = mimeCandidates.find((type) => MediaRecorder.isTypeSupported(type));
-          const recorder = mimeType ? new MediaRecorder(state.recordStream, { mimeType }) : new MediaRecorder(state.recordStream);
-          state.mediaRecorder = recorder;
-          state.recordChunks = [];
-          state.recordingStartedAt = Date.now();
-          ui.recordBtn.classList.add("recording");
-          ui.recordBtn.textContent = "停止录制";
-          updateSampleStatus(key, "正在录制个人样本：00:00", true);
-          state.recordTimer = setInterval(() => {
-            const t = formatDuration(Date.now() - state.recordingStartedAt);
-            updateSampleStatus(key, `正在录制个人样本：${t}`, true);
-          }, 1000);
-
-          recorder.addEventListener("dataavailable", (event) => {
-            if (event.data && event.data.size > 0) state.recordChunks.push(event.data);
-          });
-
-          recorder.addEventListener("stop", () => {
-            if (state.recordTimer) {
-              clearInterval(state.recordTimer);
-              state.recordTimer = null;
-            }
-            ui.recordBtn.classList.remove("recording");
-            ui.recordBtn.textContent = "录制样本";
-            cleanupRecordStream(state);
-
-            if (!state.recordChunks.length) {
-              updateSampleStatus(key, "录制未生成有效音频，请重新尝试。");
-              addBubble(ui.chatLog, "录制结束，但没有获取到有效音频数据，请再试一次。", "ai");
-              state.mediaRecorder = null;
-              return;
-            }
-
-            const durationMs = Date.now() - state.recordingStartedAt;
-            const durationLabel = formatDuration(durationMs);
-            const blob = new Blob(state.recordChunks, { type: recorder.mimeType || "audio/webm" });
-            const url = URL.createObjectURL(blob);
-            if (state.recordedSample && state.recordedSample.url) URL.revokeObjectURL(state.recordedSample.url);
-            state.recordedSample = { blob, url, durationMs, durationLabel };
-            addBubble(ui.chatLog, `已保存${persona.name}个人样本（${durationLabel}）。`, "ai");
-            state.mediaRecorder = null;
-            syncVoiceSource(key);
-          });
-
-          recorder.start();
-          addBubble(ui.chatLog, `已开始录制${persona.name}样本，再点一次“停止录制”即可保存。`, "ai");
-        } catch (err) {
-          if (state.recordTimer) {
-            clearInterval(state.recordTimer);
-            state.recordTimer = null;
-          }
-          ui.recordBtn.classList.remove("recording");
-          ui.recordBtn.textContent = "录制样本";
-          cleanupRecordStream(state);
-          state.mediaRecorder = null;
-          updateSampleStatus(key, "录音权限未开启或设备不可用，当前仍使用默认声音文件。");
-          addBubble(ui.chatLog, "未能启动录音，请检查麦克风权限或设备连接后重试。", "ai");
         }
       });
 
@@ -1872,6 +1978,149 @@
 
     renderPersonaGrid();
 
+    const builder = {
+      nameInput: document.getElementById("builderName"),
+      useSelect: document.getElementById("builderUse"),
+      uploadInput: document.getElementById("builderUpload"),
+      uploadSummary: document.getElementById("builderUploadSummary"),
+      recordBtn: document.getElementById("builderRecordBtn"),
+      playBtn: document.getElementById("builderPlayBtn"),
+      recordStatus: document.getElementById("builderRecordStatus"),
+      audio: document.getElementById("builderAudio"),
+      generateBtn: document.getElementById("builderGenerateBtn"),
+      result: document.getElementById("builderResult"),
+      mediaRecorder: null,
+      recordStream: null,
+      recordChunks: [],
+      recordTimer: null,
+      recordingStartedAt: 0,
+      recordedSample: null
+    };
+
+    function cleanupBuilderStream() {
+      if (!builder.recordStream) return;
+      builder.recordStream.getTracks().forEach((track) => track.stop());
+      builder.recordStream = null;
+    }
+
+    function setBuilderStatus(text, isRecording = false) {
+      builder.recordStatus.textContent = text;
+      builder.recordStatus.classList.toggle("recording", isRecording);
+    }
+
+    function updateUploadSummary() {
+      const files = Array.from(builder.uploadInput.files || []);
+      if (!files.length) {
+        builder.uploadSummary.textContent = "尚未上传资料。";
+        return;
+      }
+      const images = files.filter((f) => f.type.startsWith("image/")).length;
+      const audios = files.filter((f) => f.type.startsWith("audio/")).length;
+      const texts = files.length - images - audios;
+      builder.uploadSummary.textContent = `已上传 ${files.length} 个文件（图片 ${images}，音频 ${audios}，文本 ${texts}）。`;
+    }
+
+    function generateBuilderPreview() {
+      const name = builder.nameInput.value.trim() || "我的家人";
+      const scene = builder.useSelect.value;
+      const fileCount = (builder.uploadInput.files || []).length;
+      const hasVoice = !!builder.recordedSample;
+      const voiceText = hasVoice ? "已录制声音样本，可用于语气拟合。" : "暂未录制声音样本，建议补充录音提升真实感。";
+      builder.result.innerHTML =
+        `已生成 <strong>${name}数字人</strong> 的演示预览。<br />` +
+        `应用场景：${scene}。<br />` +
+        `已接收资料：${fileCount} 份。<br />` +
+        `${voiceText}<br />` +
+        `下一步可直接进入“数字生命交互台”体验对话效果。`;
+    }
+
+    builder.uploadInput.addEventListener("change", updateUploadSummary);
+
+    builder.recordBtn.addEventListener("click", async () => {
+      if (!window.MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        setBuilderStatus("当前浏览器不支持录音功能，请更换到较新的 Chrome/Edge。");
+        return;
+      }
+
+      if (builder.mediaRecorder && builder.mediaRecorder.state === "recording") {
+        builder.mediaRecorder.stop();
+        return;
+      }
+
+      try {
+        builder.recordStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mimeCandidates = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"];
+        const mimeType = mimeCandidates.find((type) => MediaRecorder.isTypeSupported(type));
+        const recorder = mimeType ? new MediaRecorder(builder.recordStream, { mimeType }) : new MediaRecorder(builder.recordStream);
+        builder.mediaRecorder = recorder;
+        builder.recordChunks = [];
+        builder.recordingStartedAt = Date.now();
+        builder.recordBtn.classList.add("recording");
+        builder.recordBtn.textContent = "停止录制";
+        setBuilderStatus("正在录制声音样本：00:00", true);
+        builder.recordTimer = setInterval(() => {
+          const t = formatDuration(Date.now() - builder.recordingStartedAt);
+          setBuilderStatus(`正在录制声音样本：${t}`, true);
+        }, 1000);
+
+        recorder.addEventListener("dataavailable", (event) => {
+          if (event.data && event.data.size > 0) builder.recordChunks.push(event.data);
+        });
+
+        recorder.addEventListener("stop", () => {
+          if (builder.recordTimer) {
+            clearInterval(builder.recordTimer);
+            builder.recordTimer = null;
+          }
+          builder.recordBtn.classList.remove("recording");
+          builder.recordBtn.textContent = "开始录制";
+          cleanupBuilderStream();
+          if (!builder.recordChunks.length) {
+            setBuilderStatus("录制未生成有效音频，请重试。");
+            builder.mediaRecorder = null;
+            return;
+          }
+          const durationMs = Date.now() - builder.recordingStartedAt;
+          const durationLabel = formatDuration(durationMs);
+          const blob = new Blob(builder.recordChunks, { type: recorder.mimeType || "audio/webm" });
+          const url = URL.createObjectURL(blob);
+          if (builder.recordedSample && builder.recordedSample.url) URL.revokeObjectURL(builder.recordedSample.url);
+          builder.recordedSample = { blob, url, durationLabel };
+          builder.audio.src = url;
+          builder.audio.load();
+          setBuilderStatus(`已录制声音样本（${durationLabel}）。`);
+          builder.mediaRecorder = null;
+        });
+
+        recorder.start();
+      } catch (err) {
+        if (builder.recordTimer) {
+          clearInterval(builder.recordTimer);
+          builder.recordTimer = null;
+        }
+        builder.recordBtn.classList.remove("recording");
+        builder.recordBtn.textContent = "开始录制";
+        cleanupBuilderStream();
+        builder.mediaRecorder = null;
+        setBuilderStatus("未能启动录音，请检查麦克风权限或设备连接。");
+      }
+    });
+
+    builder.playBtn.addEventListener("click", async () => {
+      if (!builder.recordedSample) {
+        setBuilderStatus("尚未录制声音样本。");
+        return;
+      }
+      try {
+        await builder.audio.play();
+        setBuilderStatus(`正在播放声音样本（${builder.recordedSample.durationLabel}）。`);
+      } catch (err) {
+        setBuilderStatus("当前环境无法自动播放，请再点击一次。");
+      }
+    });
+
+    builder.generateBtn.addEventListener("click", generateBuilderPreview);
+
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -1927,10 +2176,8 @@
 
     window.addEventListener("resize", setupCanvas);
     window.addEventListener("beforeunload", () => {
-      Object.values(stateByKey).forEach((state) => {
-        if (state.recordedSample && state.recordedSample.url) URL.revokeObjectURL(state.recordedSample.url);
-        cleanupRecordStream(state);
-      });
+      if (builder.recordedSample && builder.recordedSample.url) URL.revokeObjectURL(builder.recordedSample.url);
+      cleanupBuilderStream();
     });
     setupCanvas();
     draw();
