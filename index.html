@@ -886,6 +886,36 @@
       transform: translateY(-1px);
     }
 
+    .demo-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 0 12px 10px;
+    }
+
+    .demo-tip {
+      padding: 0 12px 10px;
+      font-size: 12px;
+      color: #93b2d1;
+    }
+
+    .demo-btn {
+      border: 1px solid rgba(120, 184, 241, 0.28);
+      background: rgba(8, 18, 34, 0.75);
+      color: #d7ecff;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      padding: 6px 12px;
+      transition: 0.2s ease;
+    }
+
+    .demo-btn:hover {
+      border-color: rgba(29, 226, 199, 0.55);
+      color: #e9fffb;
+      transform: translateY(-1px);
+    }
+
     .footer {
       margin: 84px 0 36px;
       text-align: center;
@@ -1105,16 +1135,16 @@
         <div class="lab-top">
           <div class="persona-zone">
             <div class="persona-switch">
-              <button class="switch-btn active" data-persona="elderA">王爷爷数字人</button>
-              <button class="switch-btn" data-persona="elderB">李奶奶数字人</button>
+              <button class="switch-btn active" data-persona="elderA">王建国数字人</button>
+              <button class="switch-btn" data-persona="elderB">李淑兰数字人</button>
             </div>
             <div class="persona-view">
               <div class="portrait" id="portrait">
-                <img id="portraitImage" class="portrait-img" src="./assets/elder-a.svg" alt="老人数字人头像" />
+                <img id="portraitImage" class="portrait-img" src="./assets/wang-jianguo.png" alt="王建国数字人头像" />
                 <span id="portraitTag" class="portrait-tag">口述记忆模式</span>
               </div>
               <div class="persona-data">
-                <h3 id="personaName">王爷爷 · 数字生命</h3>
+                <h3 id="personaName">王建国 · 数字生命</h3>
                 <div class="persona-meta" id="personaTag">铁路工程口述史 / 1941 - 2023</div>
                 <p id="personaDesc">
                   说话稳重，擅长讲述建桥、迁居和家庭成长故事，回答偏时间线叙述。
@@ -1168,7 +1198,7 @@
                     <button class="btn ghost" id="recordBtn">录制样本</button>
                     <button class="btn primary" id="playBtn">播放试听</button>
                   </div>
-                  <div class="voice-meta" id="voiceMeta">当前试听：王爷爷数字人样本</div>
+                  <div class="voice-meta" id="voiceMeta">当前试听：王建国数字人样本</div>
                   <div class="sample-status" id="sampleStatus">未录制个人样本，当前使用默认声音文件。</div>
                   <audio id="voiceAudio" preload="auto"></audio>
                 </div>
@@ -1180,6 +1210,11 @@
                     <div class="bubble ai">你好，我已经准备好了。你可以问我年轻时最难忘的一段经历。</div>
                   </div>
                   <div class="quick-asks" id="quickAsks"></div>
+                  <div class="demo-actions">
+                    <button type="button" class="demo-btn" id="demoPlayBtn">播放案例对话</button>
+                    <button type="button" class="demo-btn" id="chatResetBtn">重置对话</button>
+                  </div>
+                  <div class="demo-tip" id="demoTip">当前为预设案例演示对话（文字版）。</div>
                   <form class="chat-form" id="chatForm">
                     <input id="chatInput" type="text" placeholder="输入消息，例如：您当年参加修桥时最难忘的事是什么？" />
                     <button type="submit">发送</button>
@@ -1202,14 +1237,14 @@
   <script>
     const personas = {
       elderA: {
-        name: "王爷爷 · 数字生命",
+        name: "王建国 · 数字生命",
         tag: "铁路工程口述史 / 1941 - 2023",
         desc: "说话稳重，擅长讲述建桥、迁居和家庭成长故事，回答偏时间线叙述。",
         avatar: "当前为“纪实访谈”风格，适合做家族纪录片式叙述与人生故事视频旁白。",
         portraitTag: "工程记忆模式",
-        image: "./assets/elder-a.svg",
+        image: "./assets/wang-jianguo.png",
         audio: "./assets/elder-a-voice.wav",
-        voiceLabel: "当前试听：王爷爷数字人样本",
+        voiceLabel: "当前试听：王建国数字人样本",
         palette: {
           glow: "rgba(29, 226, 199, 0.26)",
           deep: "#0b1c35",
@@ -1229,7 +1264,7 @@
           {
             title: "老车站口述录音",
             meta: "磁带转录 · 51分钟 · 去噪完成",
-            detail: "保留了王爷爷的叙述节奏，适合作为数字人声音样本，并用于生成“老站台记忆”短视频脚本。"
+            detail: "保留了王建国的叙述节奏，适合作为数字人声音样本，并用于生成“老站台记忆”短视频脚本。"
           },
           {
             title: "家庭迁居相册",
@@ -1242,17 +1277,53 @@
           "如果你要做回忆录，我建议先从第一次离家工作那年写起，更有画面感。",
           "这段经历我可以拆成三部分讲：背景、转折、后来影响。"
         ],
-        greeting: "你好，我是王爷爷数字人。你可以问我修桥年代、家庭迁居或人生转折。"
+        scriptedRules: [
+          {
+            keywords: ["修桥", "大桥", "工程"],
+            reply: "那年最难的是雨季抢修。连续三天没合眼，大家轮班守着桥墩，最后在涨水前把关键焊点全部补完。"
+          },
+          {
+            keywords: ["离家", "工作", "第一份"],
+            reply: "我第一份正式工作是在铁路工务段，从学徒做起。那时候每天都要背工具走很远，但学到的是真本事。"
+          },
+          {
+            keywords: ["建议", "后辈", "年轻人"],
+            reply: "我给后辈一句话：先把手头的小事做扎实，机会来了你才接得住。"
+          },
+          {
+            keywords: ["回忆录", "传记", "写作"],
+            reply: "回忆录建议按“年份-事件-人物影响”来写，每章一个主事件，读起来更清楚。"
+          }
+        ],
+        demoDialogues: [
+          {
+            user: "您第一次离家工作是在哪一年？",
+            ai: "1961年。那会儿我背着行李坐了十几个小时绿皮车，到工务段报到，心里又紧张又兴奋。"
+          },
+          {
+            user: "修桥时最难忘的一次经历是什么？",
+            ai: "1970年雨季抢修汉江大桥，水位涨得很快。我们三班倒守桥墩，硬是把关键焊点抢在洪峰前完成。"
+          },
+          {
+            user: "这段经历给您最大的影响是什么？",
+            ai: "让我明白一件事：工程不是一个人的本事，是一群人互相信任、互相托底。"
+          },
+          {
+            user: "如果给后辈一句建议，您会说什么？",
+            ai: "先把每件小事做稳，再谈大目标。人只要肯沉下来，路会越走越宽。"
+          }
+        ],
+        greeting: "你好，我是王建国数字人。你可以问我修桥年代、家庭迁居或人生转折。"
       },
       elderB: {
-        name: "李奶奶 · 数字生命",
+        name: "李淑兰 · 数字生命",
         tag: "教育与家庭叙事 / 1946 - 至今",
         desc: "语气温柔，擅长讲述教学经历、家风故事和代际关系，回答更偏情感细节。",
         avatar: "当前为“温暖纪念”风格，适合展现家庭传承、家训故事与女性人生叙事。",
         portraitTag: "家风叙事模式",
-        image: "./assets/elder-b.svg",
+        image: "./assets/li-shulan.png",
         audio: "./assets/elder-b-voice.wav",
-        voiceLabel: "当前试听：李奶奶数字人样本",
+        voiceLabel: "当前试听：李淑兰数字人样本",
         palette: {
           glow: "rgba(255, 198, 122, 0.28)",
           deep: "#2a173a",
@@ -1285,7 +1356,43 @@
           "你这个问题问得好，我先从一个小故事讲起，再说背后的原因。",
           "做人生故事视频时，情绪节奏很重要，我可以帮你先排一版温暖叙事。"
         ],
-        greeting: "你好呀，我是李奶奶数字人。你可以问我教书故事、家风家训或家庭记忆。"
+        scriptedRules: [
+          {
+            keywords: ["教书", "学生", "课堂"],
+            reply: "我最喜欢的一届是1984级。孩子们基础不算最好，但特别肯问问题，后来很多人都成了老师和医生。"
+          },
+          {
+            keywords: ["过年", "家宴", "传统"],
+            reply: "我们家过年一定有三样：手写春联、全家包饺子、饭后轮流讲一年里最感谢的一件事。"
+          },
+          {
+            keywords: ["孙辈", "后辈", "寄语"],
+            reply: "我想对孙辈说，读书是为了看见更大的世界，但别忘了回家看看长辈。"
+          },
+          {
+            keywords: ["回忆录", "传记", "家风"],
+            reply: "家风主题可以按“长辈一句话+一个真实故事+一条今天还能做的行动”来写。"
+          }
+        ],
+        demoDialogues: [
+          {
+            user: "您教书时最喜欢的一届学生是谁？",
+            ai: "1984级。那届孩子特别爱问“为什么”，每次下课都围着我继续讨论。"
+          },
+          {
+            user: "家里过年最有仪式感的是什么？",
+            ai: "是全家一起包饺子。谁擀皮、谁调馅都很固定，边做边聊，一下子就有年味了。"
+          },
+          {
+            user: "您觉得家风最重要的一点是什么？",
+            ai: "说到做到。答应了家人的事，不管大小都要认真完成。"
+          },
+          {
+            user: "想给孙辈留一句什么话？",
+            ai: "走得再远，也要记得自己从哪里出发。心里有根，人就不会慌。"
+          }
+        ],
+        greeting: "你好呀，我是李淑兰数字人。你可以问我教书故事、家风家训或家庭记忆。"
       }
     };
 
@@ -1309,6 +1416,9 @@
       sampleStatus: document.getElementById("sampleStatus"),
       chatLog: document.getElementById("chatLog"),
       quickAsks: document.getElementById("quickAsks"),
+      demoPlayBtn: document.getElementById("demoPlayBtn"),
+      chatResetBtn: document.getElementById("chatResetBtn"),
+      demoTip: document.getElementById("demoTip"),
       chatForm: document.getElementById("chatForm"),
       chatInput: document.getElementById("chatInput")
     };
@@ -1325,6 +1435,11 @@
     let recordingStartedAt = 0;
     let recordingPersona = "";
     let recordTimer = null;
+    let demoRunId = 0;
+    const scriptedReplyCursor = {
+      elderA: 0,
+      elderB: 0
+    };
 
     function formatDuration(ms) {
       const total = Math.max(0, Math.round(ms / 1000));
@@ -1377,6 +1492,53 @@
       updateSampleStatus(`正在录制个人样本：${t}`, true);
     }
 
+    function stopDemoDialogue() {
+      demoRunId += 1;
+    }
+
+    function wait(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function getScriptedReply(input) {
+      const persona = personas[currentPersona];
+      const text = input.trim();
+      const compact = text.replace(/\s+/g, "");
+
+      for (const rule of persona.scriptedRules || []) {
+        if (rule.keywords.some((k) => compact.includes(k))) {
+          return rule.reply;
+        }
+      }
+
+      const list = persona.replies;
+      const cursor = scriptedReplyCursor[currentPersona] % list.length;
+      scriptedReplyCursor[currentPersona] += 1;
+      return list[cursor];
+    }
+
+    async function playDemoDialogue() {
+      const persona = personas[currentPersona];
+      const script = persona.demoDialogues || [];
+      if (!script.length) return;
+
+      stopDemoDialogue();
+      const runId = demoRunId;
+      resetChat(persona.greeting);
+
+      for (const turn of script) {
+        if (runId !== demoRunId) return;
+        await wait(420);
+        if (runId !== demoRunId) return;
+        addBubble(turn.user, "me");
+        triggerPortraitSpeak();
+        await wait(480);
+        if (runId !== demoRunId) return;
+        addBubble(turn.ai, "ai");
+        triggerPortraitSpeak();
+      }
+    }
+
     function setQuickAsks(list) {
       els.quickAsks.innerHTML = "";
       list.forEach((q) => {
@@ -1424,6 +1586,9 @@
       });
       els.memoryDetail.textContent = p.memories[0].detail;
       setQuickAsks(p.quickAsks);
+      stopDemoDialogue();
+      scriptedReplyCursor[currentPersona] = 0;
+      els.demoTip.textContent = `当前为 ${p.name} 的预设案例演示对话（文字版）。`;
       resetChat(p.greeting);
       syncVoiceSource();
     }
@@ -1442,17 +1607,15 @@
     }
 
     function aiReply(input) {
-      const persona = personas[currentPersona];
-      const list = persona.replies;
       const key = input.trim();
-      if (!key) return list[0];
+      if (!key) return getScriptedReply("空输入");
       if (key.includes("视频") || key.includes("短片")) {
         return "这个主题很适合做 AI 人生故事视频，我可以先给你一个“开场-冲突-回响”的三段式脚本框架。";
       }
       if (key.includes("回忆录") || key.includes("传记")) {
         return "可以，我建议先按时间线拉出目录，再把关键人物关系嵌入每章叙事。";
       }
-      return list[Math.floor(Math.random() * list.length)];
+      return getScriptedReply(key);
     }
 
     document.querySelectorAll(".switch-btn").forEach((btn) => {
@@ -1602,13 +1765,25 @@
     });
 
     els.quickAsks.addEventListener("click", (e) => {
+      stopDemoDialogue();
       const btn = e.target.closest(".quick-ask");
       if (!btn) return;
       els.chatInput.value = btn.dataset.ask || "";
       els.chatForm.requestSubmit();
     });
 
+    els.demoPlayBtn.addEventListener("click", () => {
+      playDemoDialogue();
+    });
+
+    els.chatResetBtn.addEventListener("click", () => {
+      stopDemoDialogue();
+      scriptedReplyCursor[currentPersona] = 0;
+      resetChat(personas[currentPersona].greeting);
+    });
+
     els.chatForm.addEventListener("submit", (e) => {
+      stopDemoDialogue();
       e.preventDefault();
       const text = els.chatInput.value.trim();
       if (!text) return;
