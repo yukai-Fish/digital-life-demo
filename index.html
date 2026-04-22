@@ -435,6 +435,107 @@
       background: linear-gradient(180deg, rgba(10, 20, 40, 0.76), rgba(6, 12, 24, 0.9));
       box-shadow: var(--shadow);
       overflow: hidden;
+      padding: 18px;
+    }
+
+    .audience-note {
+      border: 1px solid rgba(122, 188, 246, 0.24);
+      border-radius: 12px;
+      background: rgba(7, 17, 33, 0.72);
+      color: #b7d1ea;
+      font-size: 13px;
+      line-height: 1.7;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+
+    .persona-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .profile-card {
+      border: 1px solid rgba(118, 183, 241, 0.24);
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(8, 18, 35, 0.86), rgba(5, 11, 22, 0.92));
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .profile-top {
+      display: grid;
+      grid-template-columns: 152px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 152px;
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid rgba(133, 194, 247, 0.3);
+    }
+
+    .profile-top h3 {
+      margin: 0;
+      font-family: "Noto Serif SC", serif;
+      font-size: 28px;
+    }
+
+    .profile-meta {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #99c6ea;
+    }
+
+    .profile-badges {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 12px;
+      border: 1px solid rgba(124, 188, 246, 0.3);
+      background: rgba(9, 20, 37, 0.7);
+      color: #d3eaff;
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .module-card {
+      border: 1px solid rgba(114, 179, 239, 0.22);
+      border-radius: 12px;
+      background: rgba(5, 12, 24, 0.8);
+      padding: 12px;
+      min-height: 124px;
+    }
+
+    .module-card.wide {
+      grid-column: 1 / -1;
+    }
+
+    .module-card h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #d8edff;
+      letter-spacing: 0.2px;
+    }
+
+    .intro-text {
+      margin: 0;
+      color: #b8cde2;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .lab-top {
@@ -450,33 +551,57 @@
       min-height: 340px;
       position: relative;
       background: linear-gradient(145deg, rgba(8, 21, 42, 0.62), rgba(8, 16, 31, 0.4));
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
     }
 
-    .persona-switch {
-      display: inline-flex;
-      gap: 8px;
-      background: rgba(9, 17, 34, 0.74);
-      border: 1px solid rgba(119, 182, 239, 0.28);
-      border-radius: 12px;
-      padding: 4px;
-      margin-bottom: 20px;
+    .persona-stack {
+      display: grid;
+      gap: 10px;
+      padding-right: 0;
     }
 
-    .switch-btn {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      padding: 8px 12px;
-      border-radius: 8px;
+    .persona-item {
+      border: 1px solid rgba(116, 179, 240, 0.24);
+      border-radius: 14px;
+      background: rgba(8, 17, 33, 0.74);
+      padding: 8px;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 10px;
+      align-items: center;
       cursor: pointer;
-      font-weight: 700;
-      font-size: 13px;
       transition: 0.22s ease;
     }
 
-    .switch-btn.active {
+    .persona-item:hover,
+    .persona-item.active {
       background: linear-gradient(90deg, rgba(29, 226, 199, 0.22), rgba(89, 168, 255, 0.2));
+      border-color: rgba(29, 226, 199, 0.55);
       color: #d9f9f4;
+      transform: translateY(-1px);
+    }
+
+    .persona-item img {
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 201, 255, 0.32);
+    }
+
+    .persona-item h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: #e6f4ff;
+    }
+
+    .persona-item p {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: #95b4d4;
     }
 
     .persona-view {
@@ -484,7 +609,7 @@
       grid-template-columns: 170px 1fr;
       gap: 20px;
       align-items: center;
-      margin-top: 6px;
+      margin-top: 2px;
     }
 
     .portrait {
@@ -661,12 +786,84 @@
     }
 
     .voice-box {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(4, 10, 19, 0.82);
-      border: 1px solid rgba(114, 179, 238, 0.22);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
       display: grid;
-      gap: 18px;
+      gap: 10px;
+    }
+
+    .voice-box .wave {
+      height: 84px;
+    }
+
+    .voice-box .voice-actions .btn {
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+
+    .chat-box {
+      border-radius: 10px;
+      min-height: 260px;
+    }
+
+    .chat-log {
+      min-height: 150px;
+      max-height: 210px;
+    }
+
+    .memory-range.compact {
+      margin-top: 0;
+    }
+
+    .memory-range.compact label,
+    .memory-range.compact .range-output {
+      font-size: 12px;
+    }
+
+    .memory-detail {
+      min-height: 74px;
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1080px) {
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-top {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo {
+        width: 100%;
+        max-width: 240px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .profile-card {
+        padding: 12px;
+      }
+
+      .profile-top h3 {
+        font-size: 24px;
+      }
+
+      .chat-form {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .voice-box {
+      border-radius: 16px;
+      background: transparent;
+      border: 0;
+      display: grid;
+      gap: 10px;
     }
 
     .wave {
@@ -1081,101 +1278,14 @@
     <section id="lab">
       <div class="block-title">
         <h2>数字生命交互台</h2>
-        <p>你可以切换两位老人数字人，并直接体验记忆检索、声音播放和 AI 对话。</p>
+        <p>面向家属纪念、展馆讲解与文旅策划的产品体验台。每位虚拟人都在同一版面展示形象、简介、记忆、声音、对话。</p>
       </div>
 
       <div class="lab-shell">
-        <div class="lab-top">
-          <div class="persona-zone">
-            <div class="persona-switch">
-              <button class="switch-btn active" data-persona="elderA">王建国数字人</button>
-              <button class="switch-btn" data-persona="elderB">李淑兰数字人</button>
-            </div>
-            <div class="persona-view">
-              <div class="portrait" id="portrait">
-                <img id="portraitImage" class="portrait-img" src="./assets/wang-jianguo.png" alt="王建国数字人头像" />
-              </div>
-              <div class="persona-data">
-                <h3 id="personaName">王建国 · 数字生命</h3>
-                <div class="persona-meta" id="personaTag">铁路工程口述史 / 1941 - 2023</div>
-                <p id="personaDesc">
-                  说话稳重，擅长讲述建桥、迁居和家庭成长故事，回答偏时间线叙述。
-                </p>
-                <div class="memory-range">
-                  <label for="memoryDepth">记忆唤醒深度</label>
-                  <input id="memoryDepth" type="range" min="20" max="100" value="62" />
-                  <div class="range-output" id="rangeOutput">当前唤醒：1960 - 1986 人生片段</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-zone">
-            <div class="tabs">
-              <button class="tab-btn active" data-tab="memory">记忆</button>
-              <button class="tab-btn" data-tab="avatar">形象</button>
-              <button class="tab-btn" data-tab="voice">声音</button>
-              <button class="tab-btn" data-tab="chat">对话</button>
-            </div>
-
-            <div class="tab-panels">
-              <div class="panel active" data-panel="memory">
-                <div class="asset-list" id="assetList"></div>
-                <div class="panel-card memory-detail" id="memoryDetail">
-                  选择一段资料，查看该故事在数字生命中的记忆映射效果。
-                </div>
-              </div>
-
-              <div class="panel" data-panel="avatar">
-                <div class="panel-card">
-                  <strong>形象状态</strong>
-                  <p id="avatarState" style="color: var(--muted); line-height: 1.8; margin: 8px 0 0;">
-                    当前为“柔和纪念”风格，强调亲切感与真实面部细节，可用于纪念馆或家庭档案展示。
-                  </p>
-                </div>
-                <div class="panel-card" style="margin-bottom: 0;">
-                  <strong>镜头建议</strong>
-                  <p style="color: var(--muted); line-height: 1.8; margin: 8px 0 0;">
-                    近景访谈镜头 + 旧照片过渡 + 时间线字幕，可用于 AI 人生故事视频片段。
-                  </p>
-                </div>
-              </div>
-
-              <div class="panel" data-panel="voice">
-                <div class="voice-box">
-                  <div class="wave" id="wave">
-                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                  </div>
-                  <div class="voice-actions">
-                    <button class="btn ghost" id="recordBtn">录制样本</button>
-                    <button class="btn primary" id="playBtn">播放试听</button>
-                  </div>
-                  <div class="voice-meta" id="voiceMeta">当前试听：王建国数字人样本</div>
-                  <div class="sample-status" id="sampleStatus">未录制个人样本，当前使用默认声音文件。</div>
-                  <audio id="voiceAudio" preload="auto"></audio>
-                </div>
-              </div>
-
-              <div class="panel" data-panel="chat">
-                <div class="chat-box">
-                  <div class="chat-log" id="chatLog">
-                    <div class="bubble ai">你好，我已经准备好了。你可以问我年轻时最难忘的一段经历。</div>
-                  </div>
-                  <div class="quick-asks" id="quickAsks"></div>
-                  <div class="demo-actions">
-                    <button type="button" class="demo-btn" id="demoPlayBtn">播放案例对话</button>
-                    <button type="button" class="demo-btn" id="chatResetBtn">重置对话</button>
-                  </div>
-                  <div class="demo-tip" id="demoTip">当前为预设案例演示对话（文字版）。</div>
-                  <form class="chat-form" id="chatForm">
-                    <input id="chatInput" type="text" placeholder="输入消息，例如：您当年参加修桥时最难忘的事是什么？" />
-                    <button type="submit">发送</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="audience-note">
+          推荐体验路径：从“形象与简介”快速判断角色定位，再看“记忆与声音”，最后通过“对话”验证交互效果。
         </div>
+        <div id="personaGrid" class="persona-grid"></div>
       </div>
     </section>
 
@@ -1192,19 +1302,12 @@
         name: "王建国 · 数字生命",
         tag: "铁路工程口述史 / 1941 - 2023",
         desc: "说话稳重，擅长讲述建桥、迁居和家庭成长故事，回答偏时间线叙述。",
-        avatar: "当前为“纪实访谈”风格，适合做家族纪录片式叙述与人生故事视频旁白。",
+        audience: ["家属纪念", "工程史展陈", "口述史访谈"],
+        avatar: "纪实访谈风格，重点还原工程年代语境与人物气质。",
         image: "./assets/wang-jianguo.png",
         audio: "./assets/elder-a-voice.wav",
         voiceLabel: "当前试听：王建国数字人样本",
-        palette: {
-          deep: "#0b1c35",
-          light: "#081324"
-        },
-        quickAsks: [
-          "您第一份工作是什么？",
-          "当年最难忘的一次工程经历？",
-          "给后辈一句建议吧"
-        ],
+        quickAsks: ["您第一份工作是什么？", "当年最难忘的一次工程经历？", "给后辈一句建议吧"],
         memories: [
           {
             title: "《汉江大桥建设笔记》",
@@ -1269,19 +1372,12 @@
         name: "李淑兰 · 数字生命",
         tag: "教育与家庭叙事 / 1946 - 至今",
         desc: "语气温柔，擅长讲述教学经历、家风故事和代际关系，回答更偏情感细节。",
-        avatar: "当前为“温暖纪念”风格，适合展现家庭传承、家训故事与女性人生叙事。",
+        audience: ["家风传承", "学校展览", "社区文化活动"],
+        avatar: "温暖纪念风格，强调家庭关系与代际情感表达。",
         image: "./assets/li-shulan.png",
         audio: "./assets/elder-b-voice.wav",
         voiceLabel: "当前试听：李淑兰数字人样本",
-        palette: {
-          deep: "#2a173a",
-          light: "#101a34"
-        },
-        quickAsks: [
-          "您教书时最喜欢的一届学生？",
-          "家里过年有什么传统？",
-          "想对孙辈说什么？"
-        ],
+        quickAsks: ["您教书时最喜欢的一届学生？", "家里过年有什么传统？", "想对孙辈说什么？"],
         memories: [
           {
             title: "《乡村课堂日记》",
@@ -1344,49 +1440,23 @@
       }
     };
 
-    const els = {
-      personaName: document.getElementById("personaName"),
-      personaTag: document.getElementById("personaTag"),
-      personaDesc: document.getElementById("personaDesc"),
-      avatarState: document.getElementById("avatarState"),
-      assetList: document.getElementById("assetList"),
-      memoryDetail: document.getElementById("memoryDetail"),
-      range: document.getElementById("memoryDepth"),
-      rangeOutput: document.getElementById("rangeOutput"),
-      portrait: document.getElementById("portrait"),
-      portraitImage: document.getElementById("portraitImage"),
-      wave: document.getElementById("wave"),
-      playBtn: document.getElementById("playBtn"),
-      voiceMeta: document.getElementById("voiceMeta"),
-      voiceAudio: document.getElementById("voiceAudio"),
-      recordBtn: document.getElementById("recordBtn"),
-      sampleStatus: document.getElementById("sampleStatus"),
-      chatLog: document.getElementById("chatLog"),
-      quickAsks: document.getElementById("quickAsks"),
-      demoPlayBtn: document.getElementById("demoPlayBtn"),
-      chatResetBtn: document.getElementById("chatResetBtn"),
-      demoTip: document.getElementById("demoTip"),
-      chatForm: document.getElementById("chatForm"),
-      chatInput: document.getElementById("chatInput")
-    };
-
-    let currentPersona = "elderA";
-    let voicePlaying = false;
-    const recordedSamples = {
-      elderA: null,
-      elderB: null
-    };
-    let mediaRecorder = null;
-    let recordStream = null;
-    let recordChunks = [];
-    let recordingStartedAt = 0;
-    let recordingPersona = "";
-    let recordTimer = null;
-    let demoRunId = 0;
-    const scriptedReplyCursor = {
-      elderA: 0,
-      elderB: 0
-    };
+    const stateByKey = Object.fromEntries(
+      Object.keys(personas).map((key) => [
+        key,
+        {
+          voicePlaying: false,
+          recordedSample: null,
+          mediaRecorder: null,
+          recordStream: null,
+          recordChunks: [],
+          recordingStartedAt: 0,
+          recordTimer: null,
+          demoRunId: 0,
+          replyCursor: 0,
+          ui: null
+        }
+      ])
+    );
 
     function formatDuration(ms) {
       const total = Math.max(0, Math.round(ms / 1000));
@@ -1395,357 +1465,394 @@
       return `${m}:${s}`;
     }
 
-    function cleanupRecordStream() {
-      if (!recordStream) return;
-      recordStream.getTracks().forEach((track) => track.stop());
-      recordStream = null;
-    }
-
-    function setRecordButtonState(isRecording) {
-      els.recordBtn.classList.toggle("recording", isRecording);
-      els.recordBtn.textContent = isRecording ? "停止录制" : "录制样本";
-    }
-
-    function updateSampleStatus(text, isRecording = false) {
-      els.sampleStatus.textContent = text;
-      els.sampleStatus.classList.toggle("recording", isRecording);
-    }
-
-    function syncVoiceSource() {
-      const persona = personas[currentPersona];
-      const sample = recordedSamples[currentPersona];
-      if (sample) {
-        els.voiceMeta.textContent = `${persona.voiceLabel}（个人样本 ${sample.durationLabel}）`;
-        els.voiceAudio.src = sample.url;
-        updateSampleStatus(`已保存个人样本（${sample.durationLabel}），点击“播放试听”可回放。`);
-      } else {
-        els.voiceMeta.textContent = persona.voiceLabel;
-        els.voiceAudio.src = persona.audio;
-        updateSampleStatus("未录制个人样本，当前使用默认声音文件。");
-      }
-      els.voiceAudio.load();
-    }
-
-    function stopVoicePlayback() {
-      voicePlaying = false;
-      els.wave.classList.remove("playing");
-      els.playBtn.textContent = "播放试听";
-      els.voiceAudio.pause();
-      els.voiceAudio.currentTime = 0;
-    }
-
-    function updateRecordingTimer() {
-      const t = formatDuration(Date.now() - recordingStartedAt);
-      updateSampleStatus(`正在录制个人样本：${t}`, true);
-    }
-
-    function stopDemoDialogue() {
-      demoRunId += 1;
-    }
-
-    function wait(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
-    function getScriptedReply(input) {
-      const persona = personas[currentPersona];
-      const text = input.trim();
-      const compact = text.replace(/\s+/g, "");
-
-      for (const rule of persona.scriptedRules || []) {
-        if (rule.keywords.some((k) => compact.includes(k))) {
-          return rule.reply;
-        }
-      }
-
-      const list = persona.replies;
-      const cursor = scriptedReplyCursor[currentPersona] % list.length;
-      scriptedReplyCursor[currentPersona] += 1;
-      return list[cursor];
-    }
-
-    async function playDemoDialogue() {
-      const persona = personas[currentPersona];
-      const script = persona.demoDialogues || [];
-      if (!script.length) return;
-
-      stopDemoDialogue();
-      const runId = demoRunId;
-      resetChat(persona.greeting);
-
-      for (const turn of script) {
-        if (runId !== demoRunId) return;
-        await wait(420);
-        if (runId !== demoRunId) return;
-        addBubble(turn.user, "me");
-        triggerPortraitSpeak();
-        await wait(480);
-        if (runId !== demoRunId) return;
-        addBubble(turn.ai, "ai");
-        triggerPortraitSpeak();
-      }
-    }
-
-    function setQuickAsks(list) {
-      els.quickAsks.innerHTML = "";
+    function setQuickAsks(container, list) {
+      container.innerHTML = "";
       list.forEach((q) => {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "quick-ask";
         btn.textContent = q;
         btn.dataset.ask = q;
-        els.quickAsks.appendChild(btn);
+        container.appendChild(btn);
       });
     }
 
-    function triggerPortraitSpeak() {
-      els.portrait.classList.remove("talking");
-      void els.portrait.offsetWidth;
-      els.portrait.classList.add("talking");
-      setTimeout(() => els.portrait.classList.remove("talking"), 900);
-    }
-
-    function renderPersona(type) {
-      const p = personas[type];
-      currentPersona = type;
-      stopVoicePlayback();
-      els.personaName.textContent = p.name;
-      els.personaTag.textContent = p.tag;
-      els.personaDesc.textContent = p.desc;
-      els.avatarState.textContent = p.avatar;
-      els.portraitImage.src = p.image;
-      els.portrait.style.setProperty("--portrait-deep", p.palette.deep);
-      els.portrait.style.setProperty("--portrait-light", p.palette.light);
-      els.assetList.innerHTML = "";
-      p.memories.forEach((m, i) => {
-        const item = document.createElement("button");
-        item.className = "asset-item" + (i === 0 ? " active" : "");
-        item.type = "button";
-        item.innerHTML = `<strong>${m.title}</strong><small>${m.meta}</small>`;
-        item.addEventListener("click", () => {
-          document.querySelectorAll(".asset-item").forEach((n) => n.classList.remove("active"));
-          item.classList.add("active");
-          els.memoryDetail.textContent = m.detail;
-        });
-        els.assetList.appendChild(item);
-      });
-      els.memoryDetail.textContent = p.memories[0].detail;
-      setQuickAsks(p.quickAsks);
-      stopDemoDialogue();
-      scriptedReplyCursor[currentPersona] = 0;
-      els.demoTip.textContent = `当前为 ${p.name} 的预设案例演示对话（文字版）。`;
-      resetChat(p.greeting);
-      syncVoiceSource();
-    }
-
-    function resetChat(greeting) {
-      els.chatLog.innerHTML = "";
-      addBubble(greeting, "ai");
-    }
-
-    function addBubble(text, who) {
+    function addBubble(chatLog, text, who) {
       const div = document.createElement("div");
       div.className = `bubble ${who}`;
       div.textContent = text;
-      els.chatLog.appendChild(div);
-      els.chatLog.scrollTop = els.chatLog.scrollHeight;
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
     }
 
-    function aiReply(input) {
-      const key = input.trim();
-      if (!key) return getScriptedReply("空输入");
-      if (key.includes("视频") || key.includes("短片")) {
-        return "这个主题很适合做 AI 人生故事视频，我可以先给你一个“开场-冲突-回响”的三段式脚本框架。";
-      }
-      if (key.includes("回忆录") || key.includes("传记")) {
-        return "可以，我建议先按时间线拉出目录，再把关键人物关系嵌入每章叙事。";
-      }
-      return getScriptedReply(key);
+    function triggerPortraitSpeak(card) {
+      const portrait = card.querySelector("[data-role='portrait']");
+      portrait.classList.remove("talking");
+      void portrait.offsetWidth;
+      portrait.classList.add("talking");
+      setTimeout(() => portrait.classList.remove("talking"), 850);
     }
 
-    document.querySelectorAll(".switch-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (mediaRecorder && mediaRecorder.state === "recording") {
-          addBubble("正在录制中，请先点击“停止录制”再切换人物。", "ai");
+    function cleanupRecordStream(state) {
+      if (!state.recordStream) return;
+      state.recordStream.getTracks().forEach((track) => track.stop());
+      state.recordStream = null;
+    }
+
+    function updateSampleStatus(key, text, isRecording = false) {
+      const ui = stateByKey[key].ui;
+      ui.sampleStatus.textContent = text;
+      ui.sampleStatus.classList.toggle("recording", isRecording);
+    }
+
+    function syncVoiceSource(key) {
+      const persona = personas[key];
+      const state = stateByKey[key];
+      const ui = state.ui;
+      if (state.recordedSample) {
+        ui.voiceMeta.textContent = `${persona.voiceLabel}（个人样本 ${state.recordedSample.durationLabel}）`;
+        ui.voiceAudio.src = state.recordedSample.url;
+        updateSampleStatus(key, `已保存个人样本（${state.recordedSample.durationLabel}），点击“播放声音样本”可回放。`);
+      } else {
+        ui.voiceMeta.textContent = persona.voiceLabel;
+        ui.voiceAudio.src = persona.audio;
+        updateSampleStatus(key, "未录制个人样本，当前使用默认声音文件。");
+      }
+      ui.voiceAudio.load();
+    }
+
+    function stopVoicePlayback(key) {
+      const state = stateByKey[key];
+      const ui = state.ui;
+      state.voicePlaying = false;
+      ui.wave.classList.remove("playing");
+      ui.playBtn.textContent = "播放声音样本";
+      ui.voiceAudio.pause();
+      ui.voiceAudio.currentTime = 0;
+    }
+
+    function stopDemoDialogue(key) {
+      stateByKey[key].demoRunId += 1;
+    }
+
+    function wait(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function getScriptedReply(key, input) {
+      const persona = personas[key];
+      const state = stateByKey[key];
+      const compact = input.trim().replace(/\s+/g, "");
+      for (const rule of persona.scriptedRules || []) {
+        if (rule.keywords.some((k) => compact.includes(k))) return rule.reply;
+      }
+      const cursor = state.replyCursor % persona.replies.length;
+      state.replyCursor += 1;
+      return persona.replies[cursor];
+    }
+
+    function resetChat(key) {
+      const persona = personas[key];
+      const ui = stateByKey[key].ui;
+      ui.chatLog.innerHTML = "";
+      addBubble(ui.chatLog, persona.greeting, "ai");
+    }
+
+    async function playDemoDialogue(key) {
+      const persona = personas[key];
+      const state = stateByKey[key];
+      const ui = state.ui;
+      if (!persona.demoDialogues.length) return;
+      stopDemoDialogue(key);
+      const runId = state.demoRunId;
+      resetChat(key);
+      for (const turn of persona.demoDialogues) {
+        if (runId !== state.demoRunId) return;
+        await wait(420);
+        if (runId !== state.demoRunId) return;
+        addBubble(ui.chatLog, turn.user, "me");
+        triggerPortraitSpeak(ui.card);
+        await wait(460);
+        if (runId !== state.demoRunId) return;
+        addBubble(ui.chatLog, turn.ai, "ai");
+        triggerPortraitSpeak(ui.card);
+      }
+    }
+
+    function createPersonaCard(key, p) {
+      const badges = p.audience.map((item) => `<span class="badge">${item}</span>`).join("");
+      const bars = Array.from({ length: 12 }, () => "<i></i>").join("");
+      return `
+        <article class="profile-card reveal" data-persona="${key}">
+          <div class="profile-top">
+            <div class="portrait" data-role="portrait" style="--portrait-deep:#0b1c35;--portrait-light:#09172f;">
+              <img class="portrait-img" src="${p.image}" alt="${p.name}头像" />
+            </div>
+            <div>
+              <h3>${p.name}</h3>
+              <div class="profile-meta">${p.tag}</div>
+              <div class="profile-badges">${badges}</div>
+            </div>
+          </div>
+          <div class="module-grid">
+            <section class="module-card">
+              <h4>简介</h4>
+              <p class="intro-text">${p.desc}</p>
+              <p class="intro-text" style="margin-top:8px;">${p.avatar}</p>
+            </section>
+            <section class="module-card">
+              <h4>形象</h4>
+              <p class="intro-text">定位：${p.tag}</p>
+              <p class="intro-text" style="margin-top:8px;">适合用于产品讲解、展陈演示与故事化传播。</p>
+            </section>
+            <section class="module-card">
+              <h4>记忆</h4>
+              <div class="memory-range compact">
+                <label>记忆唤醒深度</label>
+                <input data-role="memoryDepth" type="range" min="20" max="100" value="62" />
+                <div class="range-output" data-role="rangeOutput">当前唤醒：1960 - 1986 人生片段</div>
+              </div>
+              <div class="asset-list" data-role="assetList"></div>
+              <div class="memory-detail" data-role="memoryDetail"></div>
+            </section>
+            <section class="module-card">
+              <h4>声音</h4>
+              <div class="voice-box">
+                <div class="wave" data-role="wave">${bars}</div>
+                <div class="voice-actions">
+                  <button class="btn ghost" data-role="recordBtn" type="button">录制样本</button>
+                  <button class="btn primary" data-role="playBtn" type="button">播放声音样本</button>
+                </div>
+                <div class="voice-meta" data-role="voiceMeta">${p.voiceLabel}</div>
+                <div class="sample-status" data-role="sampleStatus">未录制个人样本，当前使用默认声音文件。</div>
+                <audio data-role="voiceAudio" preload="auto"></audio>
+              </div>
+            </section>
+            <section class="module-card wide">
+              <h4>对话</h4>
+              <div class="chat-box">
+                <div class="chat-log" data-role="chatLog"></div>
+                <div class="quick-asks" data-role="quickAsks"></div>
+                <div class="demo-actions">
+                  <button type="button" class="demo-btn" data-role="demoPlayBtn">播放案例对话</button>
+                  <button type="button" class="demo-btn" data-role="chatResetBtn">重置对话</button>
+                </div>
+                <div class="demo-tip">当前为预设案例演示对话（文字版）。</div>
+                <form class="chat-form" data-role="chatForm">
+                  <input data-role="chatInput" type="text" placeholder="输入消息，例如：您当年参加修桥时最难忘的事是什么？" />
+                  <button type="submit">发送</button>
+                </form>
+              </div>
+            </section>
+          </div>
+        </article>
+      `;
+    }
+
+    function initPersonaCard(card, key) {
+      const persona = personas[key];
+      const state = stateByKey[key];
+      const ui = {
+        card,
+        memoryDepth: card.querySelector("[data-role='memoryDepth']"),
+        rangeOutput: card.querySelector("[data-role='rangeOutput']"),
+        assetList: card.querySelector("[data-role='assetList']"),
+        memoryDetail: card.querySelector("[data-role='memoryDetail']"),
+        wave: card.querySelector("[data-role='wave']"),
+        playBtn: card.querySelector("[data-role='playBtn']"),
+        recordBtn: card.querySelector("[data-role='recordBtn']"),
+        voiceMeta: card.querySelector("[data-role='voiceMeta']"),
+        sampleStatus: card.querySelector("[data-role='sampleStatus']"),
+        voiceAudio: card.querySelector("[data-role='voiceAudio']"),
+        chatLog: card.querySelector("[data-role='chatLog']"),
+        quickAsks: card.querySelector("[data-role='quickAsks']"),
+        demoPlayBtn: card.querySelector("[data-role='demoPlayBtn']"),
+        chatResetBtn: card.querySelector("[data-role='chatResetBtn']"),
+        chatForm: card.querySelector("[data-role='chatForm']"),
+        chatInput: card.querySelector("[data-role='chatInput']")
+      };
+      state.ui = ui;
+
+      function refreshRange() {
+        const v = Number(ui.memoryDepth.value);
+        const start = 1930 + Math.round(v * 0.42);
+        const end = start + 24 + Math.round((100 - v) * 0.18);
+        ui.rangeOutput.textContent = `当前唤醒：${start} - ${end} 人生片段`;
+      }
+
+      ui.assetList.innerHTML = "";
+      persona.memories.forEach((m, idx) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "asset-item" + (idx === 0 ? " active" : "");
+        item.innerHTML = `<strong>${m.title}</strong><small>${m.meta}</small>`;
+        item.addEventListener("click", () => {
+          ui.assetList.querySelectorAll(".asset-item").forEach((n) => n.classList.remove("active"));
+          item.classList.add("active");
+          ui.memoryDetail.textContent = m.detail;
+        });
+        ui.assetList.appendChild(item);
+      });
+      ui.memoryDetail.textContent = persona.memories[0].detail;
+      setQuickAsks(ui.quickAsks, persona.quickAsks);
+      refreshRange();
+      ui.memoryDepth.addEventListener("input", refreshRange);
+
+      ui.voiceAudio.addEventListener("ended", () => {
+        state.voicePlaying = false;
+        ui.wave.classList.remove("playing");
+        ui.playBtn.textContent = "播放声音样本";
+      });
+
+      ui.playBtn.addEventListener("click", async () => {
+        state.voicePlaying = !state.voicePlaying;
+        ui.wave.classList.toggle("playing", state.voicePlaying);
+        if (state.voicePlaying) {
+          try {
+            syncVoiceSource(key);
+            await ui.voiceAudio.play();
+            ui.playBtn.textContent = "停止播放";
+            triggerPortraitSpeak(card);
+          } catch (err) {
+            state.voicePlaying = false;
+            ui.wave.classList.remove("playing");
+            ui.playBtn.textContent = "播放声音样本";
+            addBubble(ui.chatLog, "当前环境无法自动播放音频，请再点击一次。", "ai");
+          }
+        } else {
+          ui.voiceAudio.pause();
+          ui.voiceAudio.currentTime = 0;
+          ui.playBtn.textContent = "播放声音样本";
+        }
+      });
+
+      ui.recordBtn.addEventListener("click", async () => {
+        if (!window.MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          addBubble(ui.chatLog, "当前浏览器不支持录音功能，请更换到较新的 Chrome/Edge 后重试。", "ai");
           return;
         }
-        document.querySelectorAll(".switch-btn").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderPersona(btn.dataset.persona);
-      });
-    });
 
-    document.querySelectorAll(".tab-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
-        document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
-        btn.classList.add("active");
-        const panel = document.querySelector(`.panel[data-panel="${btn.dataset.tab}"]`);
-        if (panel) panel.classList.add("active");
-      });
-    });
+        if (state.mediaRecorder && state.mediaRecorder.state === "recording") {
+          state.mediaRecorder.stop();
+          return;
+        }
 
-    els.range.addEventListener("input", () => {
-      const v = Number(els.range.value);
-      const start = 1930 + Math.round(v * 0.42);
-      const end = start + 24 + Math.round((100 - v) * 0.18);
-      els.rangeOutput.textContent = `当前唤醒：${start} - ${end} 人生片段`;
-    });
-
-    els.playBtn.addEventListener("click", async () => {
-      voicePlaying = !voicePlaying;
-      els.wave.classList.toggle("playing", voicePlaying);
-      if (voicePlaying) {
         try {
-          syncVoiceSource();
-          await els.voiceAudio.play();
-          els.playBtn.textContent = "停止播放";
-          triggerPortraitSpeak();
+          stopVoicePlayback(key);
+          state.recordStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          const mimeCandidates = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"];
+          const mimeType = mimeCandidates.find((type) => MediaRecorder.isTypeSupported(type));
+          const recorder = mimeType ? new MediaRecorder(state.recordStream, { mimeType }) : new MediaRecorder(state.recordStream);
+          state.mediaRecorder = recorder;
+          state.recordChunks = [];
+          state.recordingStartedAt = Date.now();
+          ui.recordBtn.classList.add("recording");
+          ui.recordBtn.textContent = "停止录制";
+          updateSampleStatus(key, "正在录制个人样本：00:00", true);
+          state.recordTimer = setInterval(() => {
+            const t = formatDuration(Date.now() - state.recordingStartedAt);
+            updateSampleStatus(key, `正在录制个人样本：${t}`, true);
+          }, 1000);
+
+          recorder.addEventListener("dataavailable", (event) => {
+            if (event.data && event.data.size > 0) state.recordChunks.push(event.data);
+          });
+
+          recorder.addEventListener("stop", () => {
+            if (state.recordTimer) {
+              clearInterval(state.recordTimer);
+              state.recordTimer = null;
+            }
+            ui.recordBtn.classList.remove("recording");
+            ui.recordBtn.textContent = "录制样本";
+            cleanupRecordStream(state);
+
+            if (!state.recordChunks.length) {
+              updateSampleStatus(key, "录制未生成有效音频，请重新尝试。");
+              addBubble(ui.chatLog, "录制结束，但没有获取到有效音频数据，请再试一次。", "ai");
+              state.mediaRecorder = null;
+              return;
+            }
+
+            const durationMs = Date.now() - state.recordingStartedAt;
+            const durationLabel = formatDuration(durationMs);
+            const blob = new Blob(state.recordChunks, { type: recorder.mimeType || "audio/webm" });
+            const url = URL.createObjectURL(blob);
+            if (state.recordedSample && state.recordedSample.url) URL.revokeObjectURL(state.recordedSample.url);
+            state.recordedSample = { blob, url, durationMs, durationLabel };
+            addBubble(ui.chatLog, `已保存${persona.name}个人样本（${durationLabel}）。`, "ai");
+            state.mediaRecorder = null;
+            syncVoiceSource(key);
+          });
+
+          recorder.start();
+          addBubble(ui.chatLog, `已开始录制${persona.name}样本，再点一次“停止录制”即可保存。`, "ai");
         } catch (err) {
-          voicePlaying = false;
-          els.wave.classList.remove("playing");
-          els.playBtn.textContent = "播放试听";
-          addBubble("当前环境无法自动播放音频，请再点击一次“播放试听”或检查浏览器音频权限。", "ai");
+          if (state.recordTimer) {
+            clearInterval(state.recordTimer);
+            state.recordTimer = null;
+          }
+          ui.recordBtn.classList.remove("recording");
+          ui.recordBtn.textContent = "录制样本";
+          cleanupRecordStream(state);
+          state.mediaRecorder = null;
+          updateSampleStatus(key, "录音权限未开启或设备不可用，当前仍使用默认声音文件。");
+          addBubble(ui.chatLog, "未能启动录音，请检查麦克风权限或设备连接后重试。", "ai");
         }
-      } else {
-        els.voiceAudio.pause();
-        els.voiceAudio.currentTime = 0;
-        els.playBtn.textContent = "播放试听";
-      }
-    });
+      });
 
-    els.voiceAudio.addEventListener("ended", () => {
-      voicePlaying = false;
-      els.wave.classList.remove("playing");
-      els.playBtn.textContent = "播放试听";
-    });
+      ui.quickAsks.addEventListener("click", (e) => {
+        stopDemoDialogue(key);
+        const btn = e.target.closest(".quick-ask");
+        if (!btn) return;
+        ui.chatInput.value = btn.dataset.ask || "";
+        ui.chatForm.requestSubmit();
+      });
 
-    els.recordBtn.addEventListener("click", async () => {
-      if (!window.MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        addBubble("当前浏览器不支持录音功能，请更换到较新的 Chrome/Edge 后重试。", "ai");
-        return;
-      }
+      ui.demoPlayBtn.addEventListener("click", () => {
+        playDemoDialogue(key);
+      });
 
-      if (mediaRecorder && mediaRecorder.state === "recording") {
-        mediaRecorder.stop();
-        return;
-      }
+      ui.chatResetBtn.addEventListener("click", () => {
+        stopDemoDialogue(key);
+        state.replyCursor = 0;
+        resetChat(key);
+      });
 
-      try {
-        stopVoicePlayback();
-        recordStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        const mimeCandidates = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"];
-        const mimeType = mimeCandidates.find((type) => MediaRecorder.isTypeSupported(type));
-        const recorder = mimeType
-          ? new MediaRecorder(recordStream, { mimeType })
-          : new MediaRecorder(recordStream);
+      ui.chatForm.addEventListener("submit", (e) => {
+        stopDemoDialogue(key);
+        e.preventDefault();
+        const text = ui.chatInput.value.trim();
+        if (!text) return;
+        addBubble(ui.chatLog, text, "me");
+        triggerPortraitSpeak(card);
+        ui.chatInput.value = "";
+        const typing = document.createElement("div");
+        typing.className = "bubble ai";
+        typing.textContent = "正在回忆中...";
+        ui.chatLog.appendChild(typing);
+        ui.chatLog.scrollTop = ui.chatLog.scrollHeight;
+        setTimeout(() => {
+          typing.remove();
+          addBubble(ui.chatLog, getScriptedReply(key, text), "ai");
+          triggerPortraitSpeak(card);
+        }, 700);
+      });
 
-        mediaRecorder = recorder;
-        recordChunks = [];
-        recordingStartedAt = Date.now();
-        recordingPersona = currentPersona;
-        setRecordButtonState(true);
-        updateRecordingTimer();
-        recordTimer = setInterval(updateRecordingTimer, 1000);
+      resetChat(key);
+      syncVoiceSource(key);
+    }
 
-        recorder.addEventListener("dataavailable", (event) => {
-          if (event.data && event.data.size > 0) recordChunks.push(event.data);
-        });
+    function renderPersonaGrid() {
+      const grid = document.getElementById("personaGrid");
+      grid.innerHTML = Object.entries(personas).map(([key, p]) => createPersonaCard(key, p)).join("");
+      Object.keys(personas).forEach((key) => {
+        const card = grid.querySelector(`[data-persona="${key}"]`);
+        initPersonaCard(card, key);
+      });
+    }
 
-        recorder.addEventListener("stop", () => {
-          if (recordTimer) {
-            clearInterval(recordTimer);
-            recordTimer = null;
-          }
-          setRecordButtonState(false);
-          cleanupRecordStream();
-
-          const durationMs = Date.now() - recordingStartedAt;
-          const durationLabel = formatDuration(durationMs);
-          if (!recordChunks.length) {
-            updateSampleStatus("录制未生成有效音频，请重新尝试。");
-            addBubble("录制结束，但没有获取到有效音频数据，请再试一次。", "ai");
-            mediaRecorder = null;
-            recordingPersona = "";
-            return;
-          }
-
-          const blob = new Blob(recordChunks, { type: recorder.mimeType || "audio/webm" });
-          const url = URL.createObjectURL(blob);
-          const old = recordedSamples[recordingPersona];
-          if (old && old.url) URL.revokeObjectURL(old.url);
-          recordedSamples[recordingPersona] = {
-            blob,
-            url,
-            durationMs,
-            durationLabel,
-            mimeType: recorder.mimeType || "audio/webm"
-          };
-
-          const personaName = personas[recordingPersona].name;
-          addBubble(`已保存${personaName}个人样本（${durationLabel}），点击“播放试听”即可回放。`, "ai");
-
-          if (recordingPersona === currentPersona) {
-            syncVoiceSource();
-          }
-          mediaRecorder = null;
-          recordingPersona = "";
-        });
-
-        recorder.start();
-        addBubble(`已开始录制${personas[currentPersona].name}样本，再点一次“停止录制”即可保存。`, "ai");
-        document.querySelector('.tab-btn[data-tab="voice"]').click();
-      } catch (err) {
-        if (recordTimer) {
-          clearInterval(recordTimer);
-          recordTimer = null;
-        }
-        setRecordButtonState(false);
-        cleanupRecordStream();
-        mediaRecorder = null;
-        recordingPersona = "";
-        updateSampleStatus("录音权限未开启或设备不可用，当前仍使用默认声音文件。");
-        addBubble("未能启动录音，请检查麦克风权限或设备连接后重试。", "ai");
-      }
-    });
-
-    els.quickAsks.addEventListener("click", (e) => {
-      stopDemoDialogue();
-      const btn = e.target.closest(".quick-ask");
-      if (!btn) return;
-      els.chatInput.value = btn.dataset.ask || "";
-      els.chatForm.requestSubmit();
-    });
-
-    els.demoPlayBtn.addEventListener("click", () => {
-      playDemoDialogue();
-    });
-
-    els.chatResetBtn.addEventListener("click", () => {
-      stopDemoDialogue();
-      scriptedReplyCursor[currentPersona] = 0;
-      resetChat(personas[currentPersona].greeting);
-    });
-
-    els.chatForm.addEventListener("submit", (e) => {
-      stopDemoDialogue();
-      e.preventDefault();
-      const text = els.chatInput.value.trim();
-      if (!text) return;
-      addBubble(text, "me");
-      triggerPortraitSpeak();
-      els.chatInput.value = "";
-      const typing = document.createElement("div");
-      typing.className = "bubble ai";
-      typing.textContent = "正在回忆中...";
-      els.chatLog.appendChild(typing);
-      els.chatLog.scrollTop = els.chatLog.scrollHeight;
-      setTimeout(() => {
-        typing.remove();
-        addBubble(aiReply(text), "ai");
-        triggerPortraitSpeak();
-      }, 700);
-    });
+    renderPersonaGrid();
 
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -1758,11 +1865,13 @@
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
     const orbStage = document.getElementById("orbStage");
-    window.addEventListener("pointermove", (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 14;
-      const y = (e.clientY / window.innerHeight - 0.5) * -14;
-      orbStage.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-    });
+    if (orbStage) {
+      window.addEventListener("pointermove", (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 14;
+        const y = (e.clientY / window.innerHeight - 0.5) * -14;
+        orbStage.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      });
+    }
 
     const canvas = document.getElementById("bg-canvas");
     const ctx = canvas.getContext("2d");
@@ -1800,13 +1909,13 @@
 
     window.addEventListener("resize", setupCanvas);
     window.addEventListener("beforeunload", () => {
-      Object.values(recordedSamples).forEach((sample) => {
-        if (sample && sample.url) URL.revokeObjectURL(sample.url);
+      Object.values(stateByKey).forEach((state) => {
+        if (state.recordedSample && state.recordedSample.url) URL.revokeObjectURL(state.recordedSample.url);
+        cleanupRecordStream(state);
       });
     });
     setupCanvas();
     draw();
-    renderPersona("elderA");
   </script>
 </body>
 </html>
