@@ -488,7 +488,6 @@
     }
 
     .portrait {
-      --portrait-glow: rgba(29, 226, 199, 0.26);
       --portrait-deep: #0b1c35;
       --portrait-light: #081324;
       width: 170px;
@@ -511,52 +510,6 @@
       z-index: 0;
       opacity: 0.96;
       filter: contrast(1.03) saturate(1.02);
-    }
-
-    .portrait::before {
-      content: "";
-      position: absolute;
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-      background: var(--portrait-glow);
-      left: 50%;
-      top: 32%;
-      transform: translate(-50%, -50%);
-      filter: blur(2px);
-      z-index: 1;
-    }
-
-    .portrait::after {
-      content: "";
-      position: absolute;
-      width: 94px;
-      height: 114px;
-      border-radius: 56px 56px 26px 26px;
-      border: 1px solid rgba(173, 220, 255, 0.35);
-      left: 50%;
-      bottom: -20px;
-      transform: translateX(-50%);
-      background: linear-gradient(180deg, rgba(67, 113, 184, 0.44), rgba(10, 27, 58, 0.2));
-      z-index: 1;
-    }
-
-    .portrait-tag {
-      position: absolute;
-      left: 50%;
-      top: 68%;
-      transform: translateX(-50%);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #d6f7ff;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(135, 200, 255, 0.4);
-      background: rgba(6, 15, 28, 0.72);
-      z-index: 2;
-      pointer-events: none;
-      white-space: nowrap;
     }
 
     .portrait.talking {
@@ -1141,7 +1094,6 @@
             <div class="persona-view">
               <div class="portrait" id="portrait">
                 <img id="portraitImage" class="portrait-img" src="./assets/wang-jianguo.png" alt="王建国数字人头像" />
-                <span id="portraitTag" class="portrait-tag">口述记忆模式</span>
               </div>
               <div class="persona-data">
                 <h3 id="personaName">王建国 · 数字生命</h3>
@@ -1241,12 +1193,10 @@
         tag: "铁路工程口述史 / 1941 - 2023",
         desc: "说话稳重，擅长讲述建桥、迁居和家庭成长故事，回答偏时间线叙述。",
         avatar: "当前为“纪实访谈”风格，适合做家族纪录片式叙述与人生故事视频旁白。",
-        portraitTag: "工程记忆模式",
         image: "./assets/wang-jianguo.png",
         audio: "./assets/elder-a-voice.wav",
         voiceLabel: "当前试听：王建国数字人样本",
         palette: {
-          glow: "rgba(29, 226, 199, 0.26)",
           deep: "#0b1c35",
           light: "#081324"
         },
@@ -1320,12 +1270,10 @@
         tag: "教育与家庭叙事 / 1946 - 至今",
         desc: "语气温柔，擅长讲述教学经历、家风故事和代际关系，回答更偏情感细节。",
         avatar: "当前为“温暖纪念”风格，适合展现家庭传承、家训故事与女性人生叙事。",
-        portraitTag: "家风叙事模式",
         image: "./assets/li-shulan.png",
         audio: "./assets/elder-b-voice.wav",
         voiceLabel: "当前试听：李淑兰数字人样本",
         palette: {
-          glow: "rgba(255, 198, 122, 0.28)",
           deep: "#2a173a",
           light: "#101a34"
         },
@@ -1407,7 +1355,6 @@
       rangeOutput: document.getElementById("rangeOutput"),
       portrait: document.getElementById("portrait"),
       portraitImage: document.getElementById("portraitImage"),
-      portraitTag: document.getElementById("portraitTag"),
       wave: document.getElementById("wave"),
       playBtn: document.getElementById("playBtn"),
       voiceMeta: document.getElementById("voiceMeta"),
@@ -1566,9 +1513,7 @@
       els.personaTag.textContent = p.tag;
       els.personaDesc.textContent = p.desc;
       els.avatarState.textContent = p.avatar;
-      els.portraitTag.textContent = p.portraitTag;
       els.portraitImage.src = p.image;
-      els.portrait.style.setProperty("--portrait-glow", p.palette.glow);
       els.portrait.style.setProperty("--portrait-deep", p.palette.deep);
       els.portrait.style.setProperty("--portrait-light", p.palette.light);
       els.assetList.innerHTML = "";
