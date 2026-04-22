@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="王爷爷数字人头像">
+  <defs>
+    <linearGradient id="bgA" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0d253f"/>
+      <stop offset="100%" stop-color="#071423"/>
+    </linearGradient>
+    <linearGradient id="coatA" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#456ea8"/>
+      <stop offset="100%" stop-color="#203a61"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="36" fill="url(#bgA)"/>
+  <circle cx="256" cy="174" r="112" fill="#f0d1b8"/>
+  <path d="M148 174c0-69 49-116 108-116s108 47 108 116c-15-32-41-52-80-52-44 0-73 18-93 52-16 0-28 0-43 0z" fill="#d8e7f7"/>
+  <path d="M122 404c14-75 63-114 134-114 72 0 121 39 134 114z" fill="url(#coatA)"/>
+  <rect x="189" y="205" width="34" height="16" rx="8" fill="#283244"/>
+  <rect x="289" y="205" width="34" height="16" rx="8" fill="#283244"/>
+  <path d="M222 254c22 15 47 15 69 0" stroke="#ad6e5f" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M209 266c30 22 61 22 91 0" stroke="#f5f5f5" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <circle cx="256" cy="174" r="112" fill="none" stroke="#99d8ff" stroke-opacity=".28" stroke-width="3"/>
+</svg>
