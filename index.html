@@ -1661,7 +1661,7 @@
 
     <section id="lab">
       <div class="block-title">
-        <h2>案例演示：王建国数字生命</h2>
+        <h2>案例演示：陈有根数字生命</h2>
         <p>主页面聚焦单一代表人物，左侧是视频形象与人物简介，右侧是可滚动对话区，突出真实观感与交互体验。</p>
       </div>
 
@@ -1727,56 +1727,52 @@
   <script>
     const personas = {
       elderA: {
-        name: "王建国 · 数字生命",
-        tag: "铁路工程口述史 / 1941 - 2023",
-        desc: "沉稳、克制、真实，擅长讲述工程岁月、家庭迁居与时代转折中的个人选择。",
-        audience: ["家属纪念", "工程史展陈", "口述史访谈"],
+        name: "陈有根 · 数字生命",
+        tag: "滇缅铁路与中国铁路建设亲历者 / 1935 - 至今",
+        desc: "1935年生，亲历滇缅铁路工地童年、成渝线建设岁月与高铁时代变迁，讲述的是铁轨边真实的人与事。",
+        audience: ["口述历史展陈", "铁路文化传播", "家庭纪念"],
         image: "./assets/wang-jianguo.png",
         video: "./assets/vedio.mp4",
-        audio: "./assets/elder-a-voice.wav",
-        quickAsks: ["您第一份工作是什么？", "当年最难忘的一次工程经历？", "给后辈一句建议吧"],
+        audio: "./assets/voice.mp3",
+        quickAsks: ["您第一次在工地干活是什么时候？", "第一份工资两斤大米那天是什么感受？", "您最想把哪句话传给后人？"],
         replies: [
-          "那会儿条件苦，但大家拧成一股绳，很多事都靠彼此托底才扛过来。",
-          "如果做回忆录，我建议从第一次离家工作那年写起，人物弧线会更清楚。",
-          "这段经历可以分三层讲：当时的环境、关键转折、后来对家庭和性格的影响。"
+          "我讲的不是大历史，是铁轨边上那些喘气的、流汗的、咬着牙没倒下的人。",
+          "从蒸汽机车到高铁，变的是速度，不变的是人心里那口气。",
+          "铁会锈，路会老，但人身上的韧劲和担当，得一代代传下去。"
         ],
         scriptedRules: [
           {
-            keywords: ["修桥", "大桥", "工程"],
-            reply: "那年最难的是雨季抢修。连续三天没合眼，大家轮班守桥墩，最后在涨水前把关键焊点全部补完。"
+            keywords: ["滇缅", "楚雄", "碎石", "童年"],
+            reply: "滇缅铁路开工那年，我爹带我在楚雄工地捡碎石子。那时候小，扛不动重活，但已经知道这条路是靠一锤一铲铺出来的。"
           },
           {
-            keywords: ["离家", "工作", "第一份"],
-            reply: "我第一份正式工作是在铁路工务段，从学徒做起。每天背工具走很远，但学到的都是真本事。"
+            keywords: ["成渝", "第一份工资", "两斤大米", "工资"],
+            reply: "1950年修成渝线，我扛着比我还高的铁锹领了第一份工资，就是两斤大米。那不是数字，是一家人能喘口气的盼头。"
           },
           {
-            keywords: ["建议", "后辈", "年轻人"],
-            reply: "我给后辈一句话：先把手头的小事做扎实，机会来了你才接得住。"
+            keywords: ["蒸汽", "高铁", "变化", "八十年"],
+            reply: "从蒸汽机车呜呜响，到高铁像银龙贴地飞，我在这条路上走了八十年。设备越来越先进，但一线人的责任从来没轻过。"
           },
           {
-            keywords: ["回忆录", "传记", "写作"],
-            reply: "回忆录可以按“年份-事件-影响”来写，每章一个主事件，会更有阅读节奏。"
+            keywords: ["传下去", "后人", "一句话", "人心"],
+            reply: "铁会锈，路会老，但人心里那口气，得有人传下去。只要这口气在，路就不会断。"
           }
         ],
         demoDialogues: [
           {
-            user: "您第一次离家工作是在哪一年？",
-            ai: "1961年。那会儿我背着行李坐了十几个小时绿皮车到工务段报到，心里又紧张又兴奋。"
+            user: "您小时候最早接触铁路工地是什么时候？",
+            ai: "滇缅铁路开工那年。我爹带我在楚雄工地捡碎石子，手磨破了也舍不得停。"
           },
           {
-            user: "修桥时最难忘的一次经历是什么？",
-            ai: "1970年雨季抢修汉江大桥，水位涨得很快。我们三班倒守桥墩，硬是把关键焊点抢在洪峰前完成。"
+            user: "您常说第一份工资是两斤大米，那天为什么记这么清楚？",
+            ai: "因为那是我第一次觉得，自己的力气能换来家里的踏实。两斤米不多，但那天我腰杆是直的。"
           },
           {
-            user: "这段经历给您最大的影响是什么？",
-            ai: "让我明白一件事：工程不是一个人的本事，是一群人互相信任、互相托底。"
-          },
-          {
-            user: "如果给后辈一句建议，您会说什么？",
-            ai: "先把每件小事做稳，再谈大目标。人只要肯沉下来，路会越走越宽。"
+            user: "从蒸汽机车到高铁，您觉得最该被记住的是什么？",
+            ai: "不是某一台车、某一段线，而是铁轨边那些咬着牙干活的人。他们才是这条路真正的骨头。"
           }
         ],
-        greeting: "你好，我是王建国数字生命。点击左侧形象或直接输入问题，我们就可以开始聊天。"
+        greeting: "你好，我是陈有根。1935年生人，干了一辈子铁路。你想先听楚雄工地，还是成渝线领第一份工资那段故事？"
       }
     };
 
@@ -1819,14 +1815,18 @@
       chatLog.scrollTop = chatLog.scrollHeight;
     }
 
+    function setPortraitSpeaking(ui, speaking) {
+      if (!ui || !ui.portrait) return;
+      ui.portrait.classList.toggle("talking", speaking);
+    }
+
     function triggerPortraitSpeak(card) {
       const portrait = card.querySelector("[data-role='portrait']");
-      const video = card.querySelector("[data-role='personaVideo']");
-      if (video && video.paused) video.play().catch(() => {});
+      if (!portrait) return;
       portrait.classList.remove("talking");
       void portrait.offsetWidth;
       portrait.classList.add("talking");
-      setTimeout(() => portrait.classList.remove("talking"), 850);
+      setTimeout(() => portrait.classList.remove("talking"), 620);
     }
 
     function stopDemoDialogue(key) {
@@ -1872,24 +1872,39 @@
         await wait(420);
         if (runId !== state.demoRunId) return;
         addBubble(ui.chatLog, turn.user, "me");
-        triggerPortraitSpeak(ui.card);
         await wait(460);
         if (runId !== state.demoRunId) return;
         addBubble(ui.chatLog, turn.ai, "ai");
-        triggerPortraitSpeak(ui.card);
         playReplyVoice(ui);
       }
     }
 
     function playReplyVoice(ui) {
-      if (!ui.voiceAudio) return;
+      const audio = ui.voiceAudio;
+      const video = ui.personaVideo;
+      if (!audio && !video) return;
       try {
-        ui.voiceAudio.pause();
-        ui.voiceAudio.currentTime = 0;
+        if (audio) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
       } catch (err) {
         // ignore media reset errors
       }
-      ui.voiceAudio.play().catch(() => {});
+      setPortraitSpeaking(ui, true);
+      const audioPlay = audio ? audio.play().catch(() => null) : Promise.resolve(null);
+      const videoPlay = video ? video.play().catch(() => null) : Promise.resolve(null);
+      Promise.allSettled([audioPlay, videoPlay]).then((results) => {
+        const allFailed = results.every((r) => r.status === "fulfilled" && r.value === null);
+        if (allFailed) {
+          setPortraitSpeaking(ui, false);
+          triggerPortraitSpeak(ui.card);
+        }
+      });
     }
 
     function createPersonaCard(key, p) {
@@ -1919,7 +1934,7 @@
                 <div class="chat-log" data-role="chatLog"></div>
                 <div class="quick-asks" data-role="quickAsks"></div>
                 <form class="chat-form" data-role="chatForm">
-                  <input data-role="chatInput" type="text" placeholder="直接输入提问，例如：王老师，您第一次离家工作时最难忘的是什么？" />
+                  <input data-role="chatInput" type="text" placeholder="直接输入提问，例如：陈师傅，您领到第一份工资那天最深的感受是什么？" />
                   <button type="submit">发送</button>
                 </form>
               </div>
@@ -1946,18 +1961,33 @@
       state.ui = ui;
       setQuickAsks(ui.quickAsks, persona.quickAsks);
 
+      if (ui.voiceAudio) {
+        ui.voiceAudio.addEventListener("play", () => setPortraitSpeaking(ui, true));
+        ui.voiceAudio.addEventListener("ended", () => {
+          if (ui.personaVideo) {
+            ui.personaVideo.pause();
+            ui.personaVideo.currentTime = 0;
+          }
+          setPortraitSpeaking(ui, false);
+        });
+        ui.voiceAudio.addEventListener("pause", () => {
+          if (!ui.voiceAudio.ended && ui.voiceAudio.currentTime > 0) return;
+          if (ui.personaVideo) {
+            ui.personaVideo.pause();
+            ui.personaVideo.currentTime = 0;
+          }
+          setPortraitSpeaking(ui, false);
+        });
+      }
+
       ui.portrait.addEventListener("click", () => {
         stopDemoDialogue(key);
         ui.chatInput.focus();
-        if (ui.personaVideo && ui.personaVideo.paused) {
-          ui.personaVideo.play().catch(() => {});
-        }
         if (state.chatActivated) return;
         state.chatActivated = true;
-        addBubble(ui.chatLog, "王老师，您好，我想听听您当年的故事。", "me");
+        addBubble(ui.chatLog, "陈师傅，您好，我想听听您的铁路故事。", "me");
         setTimeout(() => {
-          addBubble(ui.chatLog, "你好，我在。你想先聊修桥岁月，还是第一次离家工作的那一年？", "ai");
-          triggerPortraitSpeak(card);
+          addBubble(ui.chatLog, "你好，我在。你想先听楚雄工地那段，还是成渝线领第一份工资那天？", "ai");
           playReplyVoice(ui);
         }, 420);
       });
@@ -1977,7 +2007,6 @@
         const text = ui.chatInput.value.trim();
         if (!text) return;
         addBubble(ui.chatLog, text, "me");
-        triggerPortraitSpeak(card);
         ui.chatInput.value = "";
         const typing = document.createElement("div");
         typing.className = "bubble ai";
@@ -1987,7 +2016,6 @@
         setTimeout(() => {
           typing.remove();
           addBubble(ui.chatLog, getScriptedReply(key, text), "ai");
-          triggerPortraitSpeak(card);
           playReplyVoice(ui);
         }, 700);
       });
@@ -2211,3 +2239,4 @@
   </script>
 </body>
 </html>
+
