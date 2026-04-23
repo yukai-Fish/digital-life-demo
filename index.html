@@ -504,6 +504,130 @@
       gap: 8px;
     }
 
+    .single-case-card {
+      border: 1px solid rgba(118, 183, 241, 0.24);
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(8, 18, 35, 0.86), rgba(5, 11, 22, 0.92));
+      padding: 16px;
+    }
+
+    .single-case-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .single-case-left {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .single-case-media {
+      border: 1px solid rgba(133, 194, 247, 0.3);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(6, 14, 28, 0.86);
+      position: relative;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .single-case-media:hover {
+      border-color: rgba(125, 228, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .single-case-media video {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      background: #071224;
+    }
+
+    .single-case-media .tap-hint {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      color: #dbf6ff;
+      border: 1px solid rgba(123, 195, 249, 0.4);
+      background: rgba(8, 20, 39, 0.72);
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .single-case-media.talking {
+      box-shadow: 0 0 0 2px rgba(125, 228, 255, 0.35), 0 0 32px rgba(29, 226, 199, 0.24);
+    }
+
+    .single-case-intro {
+      border: 1px solid rgba(114, 179, 239, 0.22);
+      border-radius: 12px;
+      background: rgba(5, 12, 24, 0.78);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .single-case-intro h3 {
+      margin: 0;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.08;
+      font-family: "Noto Serif SC", serif;
+    }
+
+    .single-case-intro .case-meta {
+      margin: 0;
+      color: #99c6ea;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .single-case-intro p {
+      margin: 0;
+      color: #bfd7ed;
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .single-case-right {
+      border: 1px solid rgba(114, 179, 239, 0.22);
+      border-radius: 14px;
+      background: rgba(5, 12, 24, 0.74);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      min-height: 100%;
+    }
+
+    .single-case-title {
+      margin: 0;
+      font-size: 16px;
+      color: #d8edff;
+      letter-spacing: 0.2px;
+    }
+
+    .single-case-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .single-case-chat {
+      min-height: 520px;
+    }
+
+    .single-case-chat .chat-log {
+      min-height: 360px;
+      max-height: 520px;
+    }
+
     .badge {
       font-size: 12px;
       border: 1px solid rgba(124, 188, 246, 0.3);
@@ -946,6 +1070,18 @@
         grid-template-columns: 1fr;
       }
 
+      .single-case-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .single-case-chat {
+        min-height: 460px;
+      }
+
+      .single-case-chat .chat-log {
+        min-height: 300px;
+      }
+
       .builder-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -963,6 +1099,22 @@
     @media (max-width: 680px) {
       .profile-card {
         padding: 12px;
+      }
+
+      .single-case-card {
+        padding: 12px;
+      }
+
+      .single-case-intro h3 {
+        font-size: clamp(26px, 8vw, 36px);
+      }
+
+      .single-case-chat {
+        min-height: 400px;
+      }
+
+      .single-case-chat .chat-log {
+        min-height: 260px;
       }
 
       .profile-top {
@@ -1445,8 +1597,8 @@
 
     <section id="lab">
       <div class="block-title">
-        <h2>数字生命交互台</h2>
-        <p>演示样例区仅用于展示效果：每位虚拟人都在同一版面展示形象、简介、记忆、声音、对话。</p>
+        <h2>案例演示：王建国数字生命</h2>
+        <p>主页面聚焦单一代表人物，左侧是视频形象与人物简介，右侧是可滚动对话区，突出真实观感与交互体验。</p>
       </div>
 
       <div class="lab-shell">
@@ -1513,49 +1665,25 @@
       elderA: {
         name: "王建国 · 数字生命",
         tag: "铁路工程口述史 / 1941 - 2023",
-        desc: "说话稳重，擅长讲述建桥、迁居和家庭成长故事，回答偏时间线叙述。",
+        desc: "沉稳、克制、真实，擅长讲述工程岁月、家庭迁居与时代转折中的个人选择。",
         audience: ["家属纪念", "工程史展陈", "口述史访谈"],
-        avatar: "纪实访谈风格，重点还原工程年代语境与人物气质。",
         image: "./assets/wang-jianguo.png",
+        video: "./assets/vedio.mp4",
         audio: "./assets/elder-a-voice.wav",
-        voiceLabel: "当前试听：王建国数字人样本",
         quickAsks: ["您第一份工作是什么？", "当年最难忘的一次工程经历？", "给后辈一句建议吧"],
-        memories: [
-          {
-            title: "汉江大桥建设",
-            meta: "28页生命手记",
-            summary: "从雨季暴涨的江水到深夜不灭的焊花，这段记忆完整记录了抢修现场的节奏、分工与每一次咬牙坚持的关键时刻。",
-            purpose: "帮助用户快速理解那个年代工程工作的真实难度和协作方式。",
-            ask: "可问：抢修最艰难的一天发生了什么？"
-          },
-          {
-            title: "老车站工作岁月",
-            meta: "51分钟生命录音",
-            summary: "从第一次背着行李离家，到站台晨昏交替的日常，这段记忆讲的是一个年轻人如何在陌生城市里慢慢站稳脚跟。",
-            purpose: "帮助家属和观众理解人物职业选择背后的时代背景。",
-            ask: "可问：第一次离家工作时，心里最担心什么？"
-          },
-          {
-            title: "家庭迁居故事",
-            meta: "约3200字生命回忆",
-            summary: "围绕“为什么搬、怎么搬、搬后如何重建生活”，这段记忆把一家人的犹豫、分工与重新出发的勇气娓娓道来。",
-            purpose: "帮助后代了解家庭转折点，形成清晰的家族记忆线索。",
-            ask: "可问：那一年为什么决定搬家？"
-          }
-        ],
         replies: [
-          "那会儿条件苦，但大家都拧成一股绳，很多事情靠人心顶住了。",
-          "如果你要做回忆录，我建议先从第一次离家工作那年写起，更有画面感。",
-          "这段经历我可以拆成三部分讲：背景、转折、后来影响。"
+          "那会儿条件苦，但大家拧成一股绳，很多事都靠彼此托底才扛过来。",
+          "如果做回忆录，我建议从第一次离家工作那年写起，人物弧线会更清楚。",
+          "这段经历可以分三层讲：当时的环境、关键转折、后来对家庭和性格的影响。"
         ],
         scriptedRules: [
           {
             keywords: ["修桥", "大桥", "工程"],
-            reply: "那年最难的是雨季抢修。连续三天没合眼，大家轮班守着桥墩，最后在涨水前把关键焊点全部补完。"
+            reply: "那年最难的是雨季抢修。连续三天没合眼，大家轮班守桥墩，最后在涨水前把关键焊点全部补完。"
           },
           {
             keywords: ["离家", "工作", "第一份"],
-            reply: "我第一份正式工作是在铁路工务段，从学徒做起。那时候每天都要背工具走很远，但学到的是真本事。"
+            reply: "我第一份正式工作是在铁路工务段，从学徒做起。每天背工具走很远，但学到的都是真本事。"
           },
           {
             keywords: ["建议", "后辈", "年轻人"],
@@ -1563,13 +1691,13 @@
           },
           {
             keywords: ["回忆录", "传记", "写作"],
-            reply: "回忆录建议按“年份-事件-人物影响”来写，每章一个主事件，读起来更清楚。"
+            reply: "回忆录可以按“年份-事件-影响”来写，每章一个主事件，会更有阅读节奏。"
           }
         ],
         demoDialogues: [
           {
             user: "您第一次离家工作是在哪一年？",
-            ai: "1961年。那会儿我背着行李坐了十几个小时绿皮车，到工务段报到，心里又紧张又兴奋。"
+            ai: "1961年。那会儿我背着行李坐了十几个小时绿皮车到工务段报到，心里又紧张又兴奋。"
           },
           {
             user: "修桥时最难忘的一次经历是什么？",
@@ -1584,83 +1712,7 @@
             ai: "先把每件小事做稳，再谈大目标。人只要肯沉下来，路会越走越宽。"
           }
         ],
-        greeting: "你好，我是王建国数字人。你可以问我修桥年代、家庭迁居或人生转折。"
-      },
-      elderB: {
-        name: "李淑兰 · 数字生命",
-        tag: "教育与家庭叙事 / 1946 - 至今",
-        desc: "语气温柔，擅长讲述教学经历、家风故事和代际关系，回答更偏情感细节。",
-        audience: ["家风传承", "学校展览", "社区文化活动"],
-        avatar: "温暖纪念风格，强调家庭关系与代际情感表达。",
-        image: "./assets/li-shulan.png",
-        audio: "./assets/elder-b-voice.wav",
-        voiceLabel: "当前试听：李淑兰数字人样本",
-        quickAsks: ["您教书时最喜欢的一届学生？", "家里过年有什么传统？", "想对孙辈说什么？"],
-        memories: [
-          {
-            title: "乡村课堂故事",
-            meta: "42页教学回忆",
-            summary: "粉笔灰、木课桌和孩子们亮晶晶的眼神都在这段记忆里，它讲述了平凡课堂中一点点改变人生的力量。",
-            purpose: "帮助观众理解教育初心，看到普通课堂中的长期影响。",
-            ask: "可问：最难忘的一届学生为什么特别？"
-          },
-          {
-            title: "家书往来",
-            meta: "133封家书摘录",
-            summary: "一封封家书把求学、婚后、育儿到晚年的日子串成线，字里行间既有牵挂，也有一个家庭慢慢成熟的温度。",
-            purpose: "帮助家庭成员看见不同阶段的关系与情感表达。",
-            ask: "可问：哪封信最让您难忘？"
-          },
-          {
-            title: "节庆家宴记忆",
-            meta: "17段家宴影像",
-            summary: "从除夕备菜到围桌守岁，这段记忆不仅有家宴的热闹，更有长辈一句句叮咛如何在代际之间被温柔地传下去。",
-            purpose: "帮助晚辈理解家风如何通过日常习惯传承下来。",
-            ask: "可问：家里过年最有仪式感的传统是什么？"
-          }
-        ],
-        replies: [
-          "我最想留下来的，不只是事情经过，还有一家人在一起的那份心气。",
-          "你这个问题问得好，我先从一个小故事讲起，再说背后的原因。",
-          "做人生故事视频时，情绪节奏很重要，我可以帮你先排一版温暖叙事。"
-        ],
-        scriptedRules: [
-          {
-            keywords: ["教书", "学生", "课堂"],
-            reply: "我最喜欢的一届是1984级。孩子们基础不算最好，但特别肯问问题，后来很多人都成了老师和医生。"
-          },
-          {
-            keywords: ["过年", "家宴", "传统"],
-            reply: "我们家过年一定有三样：手写春联、全家包饺子、饭后轮流讲一年里最感谢的一件事。"
-          },
-          {
-            keywords: ["孙辈", "后辈", "寄语"],
-            reply: "我想对孙辈说，读书是为了看见更大的世界，但别忘了回家看看长辈。"
-          },
-          {
-            keywords: ["回忆录", "传记", "家风"],
-            reply: "家风主题可以按“长辈一句话+一个真实故事+一条今天还能做的行动”来写。"
-          }
-        ],
-        demoDialogues: [
-          {
-            user: "您教书时最喜欢的一届学生是谁？",
-            ai: "1984级。那届孩子特别爱问“为什么”，每次下课都围着我继续讨论。"
-          },
-          {
-            user: "家里过年最有仪式感的是什么？",
-            ai: "是全家一起包饺子。谁擀皮、谁调馅都很固定，边做边聊，一下子就有年味了。"
-          },
-          {
-            user: "您觉得家风最重要的一点是什么？",
-            ai: "说到做到。答应了家人的事，不管大小都要认真完成。"
-          },
-          {
-            user: "想给孙辈留一句什么话？",
-            ai: "走得再远，也要记得自己从哪里出发。心里有根，人就不会慌。"
-          }
-        ],
-        greeting: "你好呀，我是李淑兰数字人。你可以问我教书故事、家风家训或家庭记忆。"
+        greeting: "你好，我是王建国数字生命。点击左侧形象或直接输入问题，我们就可以开始聊天。"
       }
     };
 
@@ -1668,9 +1720,9 @@
       Object.keys(personas).map((key) => [
         key,
         {
-          voicePlaying: false,
           demoRunId: 0,
           replyCursor: 0,
+          chatActivated: false,
           ui: null
         }
       ])
@@ -1711,25 +1763,6 @@
       setTimeout(() => portrait.classList.remove("talking"), 850);
     }
 
-    function syncVoiceSource(key) {
-      const persona = personas[key];
-      const state = stateByKey[key];
-      const ui = state.ui;
-      ui.voiceMeta.textContent = persona.voiceLabel;
-      ui.voiceAudio.src = persona.audio;
-      ui.voiceAudio.load();
-    }
-
-    function stopVoicePlayback(key) {
-      const state = stateByKey[key];
-      const ui = state.ui;
-      state.voicePlaying = false;
-      ui.wave.classList.remove("playing");
-      ui.playBtn.textContent = "播放声音样本";
-      ui.voiceAudio.pause();
-      ui.voiceAudio.currentTime = 0;
-    }
-
     function stopDemoDialogue(key) {
       stateByKey[key].demoRunId += 1;
     }
@@ -1752,7 +1785,9 @@
 
     function resetChat(key) {
       const persona = personas[key];
-      const ui = stateByKey[key].ui;
+      const state = stateByKey[key];
+      const ui = state.ui;
+      state.chatActivated = false;
       ui.chatLog.innerHTML = "";
       addBubble(ui.chatLog, persona.greeting, "ai");
     }
@@ -1765,6 +1800,7 @@
       stopDemoDialogue(key);
       const runId = state.demoRunId;
       resetChat(key);
+      state.chatActivated = true;
       for (const turn of persona.demoDialogues) {
         if (runId !== state.demoRunId) return;
         await wait(420);
@@ -1775,71 +1811,54 @@
         if (runId !== state.demoRunId) return;
         addBubble(ui.chatLog, turn.ai, "ai");
         triggerPortraitSpeak(ui.card);
+        playReplyVoice(ui);
       }
+    }
+
+    function playReplyVoice(ui) {
+      if (!ui.voiceAudio) return;
+      try {
+        ui.voiceAudio.pause();
+        ui.voiceAudio.currentTime = 0;
+      } catch (err) {
+        // ignore media reset errors
+      }
+      ui.voiceAudio.play().catch(() => {});
     }
 
     function createPersonaCard(key, p) {
       const badges = p.audience.map((item) => `<span class="badge">${item}</span>`).join("");
-      const bars = Array.from({ length: 12 }, () => "<i></i>").join("");
       return `
-        <article class="profile-card reveal" data-persona="${key}">
-          <div class="profile-top">
-            <div class="profile-portrait" data-role="portrait">
-              <img src="${p.image}" alt="${p.name}头像" />
-            </div>
-            <div>
-              <h3>${p.name}</h3>
-              <div class="profile-meta">${p.tag}</div>
-              <div class="profile-badges">${badges}</div>
-            </div>
-          </div>
-          <div class="module-grid">
-            <section class="module-card">
-              <h4>形象</h4>
-              <p class="intro-text">定位：${p.tag}</p>
-              <p class="intro-text" style="margin-top:8px;">适合用于产品讲解、展陈演示与故事化传播。</p>
-            </section>
-            <section class="module-card">
-              <h4>简介</h4>
-              <p class="intro-text">${p.desc}</p>
-              <p class="intro-text" style="margin-top:8px;">${p.avatar}</p>
-            </section>
-            <section class="module-card">
-              <h4>记忆</h4>
-              <div class="memory-range compact">
-                <label>记忆唤醒深度</label>
-                <input data-role="memoryDepth" type="range" min="20" max="100" value="62" />
-                <div class="range-output" data-role="rangeOutput">当前唤醒：1960 - 1986 人生片段</div>
+        <article class="single-case-card reveal" data-persona="${key}">
+          <div class="single-case-layout">
+            <section class="single-case-left">
+              <div class="single-case-media" data-role="portrait">
+                <video data-role="personaVideo" src="${p.video || p.image}" poster="${p.image}" muted loop playsinline preload="metadata"></video>
+                <div class="tap-hint">点击形象可直接开始对话</div>
               </div>
-              <div class="asset-list" data-role="assetList"></div>
-              <div class="memory-detail" data-role="memoryDetail"></div>
-            </section>
-            <section class="module-card">
-              <h4>声音</h4>
-              <div class="voice-box">
-                <div class="wave" data-role="wave">${bars}</div>
-                <div class="voice-actions">
-                  <button class="btn primary" data-role="playBtn" type="button">播放声音样本</button>
-                </div>
-                <div class="voice-meta" data-role="voiceMeta">${p.voiceLabel}</div>
-                <audio data-role="voiceAudio" preload="auto"></audio>
+              <div class="single-case-intro">
+                <h3>${p.name}</h3>
+                <p class="case-meta">${p.tag}</p>
+                <p>${p.desc}</p>
+                <div class="profile-badges">${badges}</div>
               </div>
             </section>
-            <section class="module-card wide">
-              <h4>对话</h4>
-              <div class="chat-box">
+
+            <section class="single-case-right">
+              <h4 class="single-case-title">实时对话体验</h4>
+              <div class="single-case-actions">
+                <button type="button" class="demo-btn" data-role="demoPlayBtn">播放预设对话</button>
+                <button type="button" class="demo-btn" data-role="chatResetBtn">重置对话</button>
+              </div>
+              <div class="chat-box single-case-chat">
                 <div class="chat-log" data-role="chatLog"></div>
                 <div class="quick-asks" data-role="quickAsks"></div>
-                <div class="demo-actions">
-                  <button type="button" class="demo-btn" data-role="demoPlayBtn">播放案例对话</button>
-                  <button type="button" class="demo-btn" data-role="chatResetBtn">重置对话</button>
-                </div>
-                <div class="demo-tip">当前为预设案例演示对话（文字版）。</div>
                 <form class="chat-form" data-role="chatForm">
-                  <input data-role="chatInput" type="text" placeholder="输入消息，例如：您当年参加修桥时最难忘的事是什么？" />
+                  <input data-role="chatInput" type="text" placeholder="直接输入提问，例如：王老师，您第一次离家工作时最难忘的是什么？" />
                   <button type="submit">发送</button>
                 </form>
               </div>
+              <audio data-role="voiceAudio" preload="auto" src="${p.audio}"></audio>
             </section>
           </div>
         </article>
@@ -1851,13 +1870,8 @@
       const state = stateByKey[key];
       const ui = {
         card,
-        memoryDepth: card.querySelector("[data-role='memoryDepth']"),
-        rangeOutput: card.querySelector("[data-role='rangeOutput']"),
-        assetList: card.querySelector("[data-role='assetList']"),
-        memoryDetail: card.querySelector("[data-role='memoryDetail']"),
-        wave: card.querySelector("[data-role='wave']"),
-        playBtn: card.querySelector("[data-role='playBtn']"),
-        voiceMeta: card.querySelector("[data-role='voiceMeta']"),
+        portrait: card.querySelector("[data-role='portrait']"),
+        personaVideo: card.querySelector("[data-role='personaVideo']"),
         voiceAudio: card.querySelector("[data-role='voiceAudio']"),
         chatLog: card.querySelector("[data-role='chatLog']"),
         quickAsks: card.querySelector("[data-role='quickAsks']"),
@@ -1867,62 +1881,26 @@
         chatInput: card.querySelector("[data-role='chatInput']")
       };
       state.ui = ui;
+      setQuickAsks(ui.quickAsks, persona.quickAsks);
 
-      function refreshRange() {
-        const v = Number(ui.memoryDepth.value);
-        const start = 1930 + Math.round(v * 0.42);
-        const end = start + 24 + Math.round((100 - v) * 0.18);
-        ui.rangeOutput.textContent = `当前唤醒：${start} - ${end} 人生片段`;
+      if (ui.personaVideo) {
+        ui.personaVideo.play().catch(() => {});
       }
 
-      const renderMemoryDetail = (memory) => {
-        ui.memoryDetail.innerHTML = `<strong>${memory.title}</strong><br />${memory.summary}`;
-      };
-
-      ui.assetList.innerHTML = "";
-      persona.memories.forEach((m, idx) => {
-        const item = document.createElement("button");
-        item.type = "button";
-        item.className = "asset-item" + (idx === 0 ? " active" : "");
-        item.innerHTML = `<strong>${m.title}</strong><small>${m.meta || m.summary}</small>`;
-        item.addEventListener("click", () => {
-          ui.assetList.querySelectorAll(".asset-item").forEach((n) => n.classList.remove("active"));
-          item.classList.add("active");
-          renderMemoryDetail(m);
-        });
-        ui.assetList.appendChild(item);
-      });
-      renderMemoryDetail(persona.memories[0]);
-      setQuickAsks(ui.quickAsks, persona.quickAsks);
-      refreshRange();
-      ui.memoryDepth.addEventListener("input", refreshRange);
-
-      ui.voiceAudio.addEventListener("ended", () => {
-        state.voicePlaying = false;
-        ui.wave.classList.remove("playing");
-        ui.playBtn.textContent = "播放声音样本";
-      });
-
-      ui.playBtn.addEventListener("click", async () => {
-        state.voicePlaying = !state.voicePlaying;
-        ui.wave.classList.toggle("playing", state.voicePlaying);
-        if (state.voicePlaying) {
-          try {
-            syncVoiceSource(key);
-            await ui.voiceAudio.play();
-            ui.playBtn.textContent = "停止播放";
-            triggerPortraitSpeak(card);
-          } catch (err) {
-            state.voicePlaying = false;
-            ui.wave.classList.remove("playing");
-            ui.playBtn.textContent = "播放声音样本";
-            addBubble(ui.chatLog, "当前环境无法自动播放音频，请再点击一次。", "ai");
-          }
-        } else {
-          ui.voiceAudio.pause();
-          ui.voiceAudio.currentTime = 0;
-          ui.playBtn.textContent = "播放声音样本";
+      ui.portrait.addEventListener("click", () => {
+        stopDemoDialogue(key);
+        ui.chatInput.focus();
+        if (ui.personaVideo && ui.personaVideo.paused) {
+          ui.personaVideo.play().catch(() => {});
         }
+        if (state.chatActivated) return;
+        state.chatActivated = true;
+        addBubble(ui.chatLog, "王老师，您好，我想听听您当年的故事。", "me");
+        setTimeout(() => {
+          addBubble(ui.chatLog, "你好，我在。你想先聊修桥岁月，还是第一次离家工作的那一年？", "ai");
+          triggerPortraitSpeak(card);
+          playReplyVoice(ui);
+        }, 420);
       });
 
       ui.quickAsks.addEventListener("click", (e) => {
@@ -1940,11 +1918,13 @@
       ui.chatResetBtn.addEventListener("click", () => {
         stopDemoDialogue(key);
         state.replyCursor = 0;
+        state.chatActivated = false;
         resetChat(key);
       });
 
       ui.chatForm.addEventListener("submit", (e) => {
         stopDemoDialogue(key);
+        state.chatActivated = true;
         e.preventDefault();
         const text = ui.chatInput.value.trim();
         if (!text) return;
@@ -1953,27 +1933,26 @@
         ui.chatInput.value = "";
         const typing = document.createElement("div");
         typing.className = "bubble ai";
-        typing.textContent = "正在回忆中...";
+        typing.textContent = "正在整理这段回忆...";
         ui.chatLog.appendChild(typing);
         ui.chatLog.scrollTop = ui.chatLog.scrollHeight;
         setTimeout(() => {
           typing.remove();
           addBubble(ui.chatLog, getScriptedReply(key, text), "ai");
           triggerPortraitSpeak(card);
+          playReplyVoice(ui);
         }, 700);
       });
 
       resetChat(key);
-      syncVoiceSource(key);
     }
 
     function renderPersonaGrid() {
       const grid = document.getElementById("personaGrid");
-      grid.innerHTML = Object.entries(personas).map(([key, p]) => createPersonaCard(key, p)).join("");
-      Object.keys(personas).forEach((key) => {
-        const card = grid.querySelector(`[data-persona="${key}"]`);
-        initPersonaCard(card, key);
-      });
+      const mainKey = "elderA";
+      grid.innerHTML = createPersonaCard(mainKey, personas[mainKey]);
+      const card = grid.querySelector(`[data-persona="${mainKey}"]`);
+      initPersonaCard(card, mainKey);
     }
 
     renderPersonaGrid();
