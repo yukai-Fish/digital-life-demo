@@ -634,7 +634,8 @@
     }
 
     .single-case-chat {
-      min-height: 520px;
+      height: clamp(320px, 52vh, 460px);
+      min-height: 320px;
       border-radius: 16px;
       border: 1px solid rgba(120, 184, 241, 0.24);
       background: radial-gradient(120% 120% at 0% 0%, rgba(18, 35, 65, 0.42), rgba(3, 10, 18, 0.86));
@@ -642,8 +643,8 @@
     }
 
     .single-case-chat .chat-log {
-      min-height: 360px;
-      max-height: 520px;
+      min-height: 0;
+      max-height: none;
     }
 
     .badge {
@@ -1093,10 +1094,7 @@
       }
 
       .single-case-chat {
-        min-height: 460px;
-      }
-
-      .single-case-chat .chat-log {
+        height: clamp(300px, 48vh, 420px);
         min-height: 300px;
       }
 
@@ -1134,11 +1132,8 @@
       }
 
       .single-case-chat {
-        min-height: 400px;
-      }
-
-      .single-case-chat .chat-log {
-        min-height: 260px;
+        height: clamp(280px, 45vh, 360px);
+        min-height: 280px;
       }
 
       .profile-top {
@@ -1267,7 +1262,8 @@
       align-items: flex-start;
       justify-content: flex-start;
       gap: 12px;
-      min-height: 180px;
+      min-height: 0;
+      max-height: none;
       scrollbar-width: thin;
       scrollbar-color: rgba(118, 186, 244, 0.55) transparent;
     }
