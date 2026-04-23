@@ -613,12 +613,6 @@
       letter-spacing: 0.2px;
     }
 
-    .single-case-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
     .single-case-chat {
       min-height: 520px;
     }
@@ -1757,6 +1751,8 @@
 
     function triggerPortraitSpeak(card) {
       const portrait = card.querySelector("[data-role='portrait']");
+      const video = card.querySelector("[data-role='personaVideo']");
+      if (video && video.paused) video.play().catch(() => {});
       portrait.classList.remove("talking");
       void portrait.offsetWidth;
       portrait.classList.add("talking");
@@ -1846,10 +1842,6 @@
 
             <section class="single-case-right">
               <h4 class="single-case-title">实时对话体验</h4>
-              <div class="single-case-actions">
-                <button type="button" class="demo-btn" data-role="demoPlayBtn">播放预设对话</button>
-                <button type="button" class="demo-btn" data-role="chatResetBtn">重置对话</button>
-              </div>
               <div class="chat-box single-case-chat">
                 <div class="chat-log" data-role="chatLog"></div>
                 <div class="quick-asks" data-role="quickAsks"></div>
@@ -1875,17 +1867,11 @@
         voiceAudio: card.querySelector("[data-role='voiceAudio']"),
         chatLog: card.querySelector("[data-role='chatLog']"),
         quickAsks: card.querySelector("[data-role='quickAsks']"),
-        demoPlayBtn: card.querySelector("[data-role='demoPlayBtn']"),
-        chatResetBtn: card.querySelector("[data-role='chatResetBtn']"),
         chatForm: card.querySelector("[data-role='chatForm']"),
         chatInput: card.querySelector("[data-role='chatInput']")
       };
       state.ui = ui;
       setQuickAsks(ui.quickAsks, persona.quickAsks);
-
-      if (ui.personaVideo) {
-        ui.personaVideo.play().catch(() => {});
-      }
 
       ui.portrait.addEventListener("click", () => {
         stopDemoDialogue(key);
@@ -1909,17 +1895,6 @@
         if (!btn) return;
         ui.chatInput.value = btn.dataset.ask || "";
         ui.chatForm.requestSubmit();
-      });
-
-      ui.demoPlayBtn.addEventListener("click", () => {
-        playDemoDialogue(key);
-      });
-
-      ui.chatResetBtn.addEventListener("click", () => {
-        stopDemoDialogue(key);
-        state.replyCursor = 0;
-        state.chatActivated = false;
-        resetChat(key);
       });
 
       ui.chatForm.addEventListener("submit", (e) => {
