@@ -598,23 +598,54 @@
 
     .single-case-right {
       border: 1px solid rgba(114, 179, 239, 0.22);
-      border-radius: 14px;
-      background: rgba(5, 12, 24, 0.74);
-      padding: 12px;
+      border-radius: 16px;
+      background: linear-gradient(165deg, rgba(8, 18, 34, 0.9), rgba(5, 11, 24, 0.82));
+      padding: 14px;
       display: grid;
-      gap: 10px;
+      gap: 12px;
       min-height: 100%;
+      box-shadow: inset 0 1px 0 rgba(161, 214, 255, 0.1), 0 14px 34px rgba(2, 8, 18, 0.48);
+    }
+
+    .single-case-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
 
     .single-case-title {
       margin: 0;
-      font-size: 16px;
+      font-size: 18px;
       color: #d8edff;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
+    }
+
+    .live-chip {
+      border: 1px solid rgba(47, 235, 209, 0.45);
+      border-radius: 999px;
+      background: rgba(10, 63, 65, 0.38);
+      color: #bffef3;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      padding: 5px 10px;
+      white-space: nowrap;
+    }
+
+    .single-case-subtitle {
+      margin: -2px 0 0;
+      color: #97badb;
+      font-size: 13px;
+      line-height: 1.65;
     }
 
     .single-case-chat {
       min-height: 520px;
+      border-radius: 16px;
+      border: 1px solid rgba(120, 184, 241, 0.24);
+      background: radial-gradient(120% 120% at 0% 0%, rgba(18, 35, 65, 0.42), rgba(3, 10, 18, 0.86));
+      box-shadow: inset 0 1px 0 rgba(177, 220, 255, 0.08);
     }
 
     .single-case-chat .chat-log {
@@ -1103,6 +1134,16 @@
         font-size: clamp(26px, 8vw, 36px);
       }
 
+      .single-case-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .single-case-subtitle {
+        font-size: 12px;
+      }
+
       .single-case-chat {
         min-height: 400px;
       }
@@ -1230,50 +1271,70 @@
 
     .chat-log {
       flex: 1;
-      padding: 14px;
+      padding: 16px 16px 14px;
       overflow: auto;
-      display: grid;
-      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 12px;
       min-height: 180px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(118, 186, 244, 0.55) transparent;
+    }
+
+    .chat-log::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-log::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .chat-log::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(106, 182, 246, 0.82), rgba(43, 216, 201, 0.7));
     }
 
     .bubble {
       width: fit-content;
-      max-width: 85%;
-      border-radius: 12px;
-      padding: 10px 12px;
+      max-width: min(82%, 680px);
+      border-radius: 16px;
+      padding: 12px 14px;
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.68;
+      box-shadow: 0 10px 22px rgba(2, 8, 20, 0.28);
+      animation: fadeIn 0.24s ease;
     }
 
     .bubble.ai {
-      background: rgba(26, 38, 66, 0.95);
-      border: 1px solid rgba(127, 183, 235, 0.28);
-      color: #dceafe;
+      background: linear-gradient(160deg, rgba(35, 52, 88, 0.96), rgba(26, 39, 69, 0.95));
+      border: 1px solid rgba(141, 192, 240, 0.3);
+      color: #dceaff;
     }
 
     .bubble.me {
-      justify-self: end;
-      background: linear-gradient(110deg, rgba(29, 226, 199, 0.22), rgba(89, 168, 255, 0.2));
+      align-self: flex-end;
+      background: linear-gradient(110deg, rgba(29, 226, 199, 0.22), rgba(54, 181, 243, 0.24));
       border: 1px solid rgba(29, 226, 199, 0.46);
-      color: #ebfff9;
+      color: #eafffb;
     }
 
     .chat-form {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 8px;
-      padding: 10px;
+      gap: 10px;
+      padding: 12px;
       border-top: 1px solid rgba(119, 183, 238, 0.2);
-      background: rgba(10, 19, 37, 0.75);
+      background: linear-gradient(180deg, rgba(10, 19, 37, 0.82), rgba(7, 15, 29, 0.88));
     }
 
     .chat-form input {
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid rgba(120, 184, 241, 0.24);
       background: rgba(3, 9, 18, 0.84);
       color: #d9e8f9;
-      padding: 10px 12px;
+      padding: 12px 14px;
       outline: none;
       font-size: 14px;
     }
@@ -1285,32 +1346,56 @@
 
     .chat-form button {
       border: 0;
-      border-radius: 10px;
+      border-radius: 12px;
       background: linear-gradient(110deg, var(--primary), #10d2e4);
       color: #001216;
       font-weight: 700;
       cursor: pointer;
-      padding: 0 18px;
+      min-width: 96px;
+      padding: 0 20px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .chat-form button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(19, 198, 216, 0.28);
     }
 
     .quick-asks {
       display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      padding: 0 12px 8px;
+      gap: 10px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 12px 14px 10px;
       border-top: 1px dashed rgba(118, 182, 241, 0.25);
-      margin-top: 6px;
-      padding-top: 10px;
+      margin-top: 0;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(111, 183, 242, 0.5) transparent;
+    }
+
+    .quick-asks::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .quick-asks::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .quick-asks::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(112, 181, 241, 0.76), rgba(43, 215, 200, 0.66));
     }
 
     .quick-ask {
       border: 1px solid rgba(124, 186, 245, 0.24);
-      background: rgba(11, 21, 40, 0.6);
+      background: linear-gradient(180deg, rgba(14, 26, 47, 0.8), rgba(9, 18, 34, 0.75));
       color: #cce1f6;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
       cursor: pointer;
-      padding: 6px 10px;
+      padding: 8px 14px;
       transition: 0.2s ease;
     }
 
@@ -1841,7 +1926,11 @@
             </section>
 
             <section class="single-case-right">
-              <h4 class="single-case-title">实时对话体验</h4>
+              <div class="single-case-head">
+                <h4 class="single-case-title">实时对话体验</h4>
+                <span class="live-chip">LIVE DEMO</span>
+              </div>
+              <p class="single-case-subtitle">可点击左侧人物形象，或直接输入问题开始对话。</p>
               <div class="chat-box single-case-chat">
                 <div class="chat-log" data-role="chatLog"></div>
                 <div class="quick-asks" data-role="quickAsks"></div>
