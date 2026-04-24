@@ -1896,6 +1896,28 @@
       });
     }
 
+    // Prime media playback on a real user gesture so delayed AI playback
+    // (inside setTimeout) is less likely to be blocked by autoplay policies.
+    function primeVideoPlayback(ui) {
+      const video = ui.personaVideo;
+      if (!video || video.dataset.playbackPrimed === "1") return;
+      const prevMuted = video.muted;
+      const prevVolume = video.volume;
+      video.muted = true;
+      video.volume = 0;
+      const finalize = () => {
+        video.pause();
+        video.currentTime = 0;
+        video.muted = prevMuted;
+        video.volume = prevVolume;
+        video.dataset.playbackPrimed = "1";
+      };
+      video.play().then(finalize).catch(() => {
+        video.muted = prevMuted;
+        video.volume = prevVolume;
+      });
+    }
+
     function createPersonaCard(key, p) {
       const badges = p.audience.map((item) => `<span class="badge">${item}</span>`).join("");
       return `
@@ -1963,6 +1985,7 @@
 
       ui.portrait.addEventListener("click", () => {
         stopDemoDialogue(key);
+        primeVideoPlayback(ui);
         ui.chatInput.focus();
         if (state.chatActivated) return;
         state.chatActivated = true;
@@ -1975,6 +1998,7 @@
 
       ui.quickAsks.addEventListener("click", (e) => {
         stopDemoDialogue(key);
+        primeVideoPlayback(ui);
         const btn = e.target.closest(".quick-ask");
         if (!btn) return;
         ui.chatInput.value = btn.dataset.ask || "";
@@ -1983,6 +2007,7 @@
 
       ui.chatForm.addEventListener("submit", (e) => {
         stopDemoDialogue(key);
+        primeVideoPlayback(ui);
         state.chatActivated = true;
         e.preventDefault();
         const text = ui.chatInput.value.trim();
