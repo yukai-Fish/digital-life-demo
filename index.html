@@ -1733,7 +1733,6 @@
         audience: ["口述历史展陈", "铁路文化传播", "家庭纪念"],
         image: "./assets/chen-yougen.png",
         video: "./assets/chen-yougen-vedio.mp4",
-        audio: "./assets/voice.mp3",
         quickAsks: ["您第一次在工地干活是什么时候？", "第一份工资两斤大米那天是什么感受？", "您最想把哪句话传给后人？"],
         replies: [
           "我讲的不是大历史，是铁轨边上那些喘气的、流汗的、咬着牙没倒下的人。",
@@ -1880,30 +1879,20 @@
     }
 
     function playReplyVoice(ui) {
-      const audio = ui.voiceAudio;
       const video = ui.personaVideo;
-      if (!audio && !video) return;
+      if (!video) return;
       try {
-        if (audio) {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-        }
+        video.pause();
+        video.currentTime = 0;
+        video.muted = false;
+        video.volume = 1;
       } catch (err) {
         // ignore media reset errors
       }
       setPortraitSpeaking(ui, true);
-      const audioPlay = audio ? audio.play().catch(() => null) : Promise.resolve(null);
-      const videoPlay = video ? video.play().catch(() => null) : Promise.resolve(null);
-      Promise.allSettled([audioPlay, videoPlay]).then((results) => {
-        const allFailed = results.every((r) => r.status === "fulfilled" && r.value === null);
-        if (allFailed) {
-          setPortraitSpeaking(ui, false);
-          triggerPortraitSpeak(ui.card);
-        }
+      video.play().catch(() => {
+        setPortraitSpeaking(ui, false);
+        triggerPortraitSpeak(ui.card);
       });
     }
 
@@ -1914,7 +1903,7 @@
           <div class="single-case-layout">
             <section class="single-case-left">
               <div class="single-case-media" data-role="portrait">
-                <video data-role="personaVideo" src="${p.video || p.image}" poster="${p.image}" muted loop playsinline preload="metadata"></video>
+                <video data-role="personaVideo" src="${p.video || p.image}" poster="${p.image}" playsinline preload="metadata"></video>
                 <div class="tap-hint">点击形象可直接开始对话</div>
               </div>
               <div class="single-case-intro">
@@ -1938,7 +1927,6 @@
                   <button type="submit">发送</button>
                 </form>
               </div>
-              <audio data-role="voiceAudio" preload="auto" src="${p.audio}"></audio>
             </section>
           </div>
         </article>
@@ -1952,7 +1940,6 @@
         card,
         portrait: card.querySelector("[data-role='portrait']"),
         personaVideo: card.querySelector("[data-role='personaVideo']"),
-        voiceAudio: card.querySelector("[data-role='voiceAudio']"),
         chatLog: card.querySelector("[data-role='chatLog']"),
         quickAsks: card.querySelector("[data-role='quickAsks']"),
         chatForm: card.querySelector("[data-role='chatForm']"),
@@ -1961,21 +1948,15 @@
       state.ui = ui;
       setQuickAsks(ui.quickAsks, persona.quickAsks);
 
-      if (ui.voiceAudio) {
-        ui.voiceAudio.addEventListener("play", () => setPortraitSpeaking(ui, true));
-        ui.voiceAudio.addEventListener("ended", () => {
-          if (ui.personaVideo) {
-            ui.personaVideo.pause();
-            ui.personaVideo.currentTime = 0;
-          }
+      if (ui.personaVideo) {
+        ui.personaVideo.addEventListener("play", () => setPortraitSpeaking(ui, true));
+        ui.personaVideo.addEventListener("ended", () => {
+          ui.personaVideo.pause();
+          ui.personaVideo.currentTime = 0;
           setPortraitSpeaking(ui, false);
         });
-        ui.voiceAudio.addEventListener("pause", () => {
-          if (!ui.voiceAudio.ended && ui.voiceAudio.currentTime > 0) return;
-          if (ui.personaVideo) {
-            ui.personaVideo.pause();
-            ui.personaVideo.currentTime = 0;
-          }
+        ui.personaVideo.addEventListener("pause", () => {
+          if (!ui.personaVideo.ended && ui.personaVideo.currentTime > 0) return;
           setPortraitSpeaking(ui, false);
         });
       }
