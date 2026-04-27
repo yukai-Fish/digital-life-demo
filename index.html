@@ -614,14 +614,6 @@
       gap: 10px;
     }
 
-    .single-case-head-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
     .single-case-title {
       margin: 0;
       font-size: 18px;
@@ -639,32 +631,6 @@
       letter-spacing: 0.3px;
       padding: 5px 10px;
       white-space: nowrap;
-    }
-
-    .sound-toggle-btn {
-      border: 1px solid rgba(120, 189, 246, 0.4);
-      border-radius: 999px;
-      background: rgba(8, 22, 44, 0.74);
-      color: #d3ebff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      padding: 7px 12px;
-      cursor: pointer;
-      transition: 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .sound-toggle-btn:hover {
-      border-color: rgba(38, 228, 206, 0.62);
-      color: #effffb;
-      transform: translateY(-1px);
-    }
-
-    .sound-toggle-btn.enabled {
-      border-color: rgba(38, 228, 206, 0.66);
-      background: linear-gradient(100deg, rgba(17, 93, 92, 0.78), rgba(20, 55, 92, 0.74));
-      color: #dffef8;
     }
 
     .single-case-chat {
@@ -1163,10 +1129,6 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 6px;
-      }
-
-      .single-case-head-right {
-        justify-content: flex-start;
       }
 
       .single-case-chat {
@@ -1820,7 +1782,6 @@
           demoRunId: 0,
           replyCursor: 0,
           chatActivated: false,
-          soundEnabled: false,
           ui: null
         }
       ])
@@ -1918,15 +1879,14 @@
     }
 
     function playReplyVoice(key) {
-      const state = stateByKey[key];
-      const ui = state.ui;
+      const ui = stateByKey[key].ui;
       const video = ui.personaVideo;
       if (!video) return;
       try {
         video.pause();
         video.currentTime = 0;
-        video.muted = !state.soundEnabled;
-        video.volume = state.soundEnabled ? 1 : 0;
+        video.muted = false;
+        video.volume = 1;
       } catch (err) {
         // ignore media reset errors
       }
@@ -1935,28 +1895,6 @@
         setPortraitSpeaking(ui, false);
         triggerPortraitSpeak(ui.card);
       });
-    }
-
-    function activateSound(key) {
-      const state = stateByKey[key];
-      const ui = state.ui;
-      if (!ui || !ui.personaVideo) return;
-      state.soundEnabled = true;
-      if (ui.soundToggleBtn) {
-        ui.soundToggleBtn.classList.add("enabled");
-        ui.soundToggleBtn.textContent = "声音已开启";
-      }
-      ui.personaVideo.muted = false;
-      ui.personaVideo.volume = 1;
-      if (ui.personaVideo.paused) {
-        ui.personaVideo.play().then(() => {
-          setTimeout(() => {
-            ui.personaVideo.pause();
-            ui.personaVideo.currentTime = 0;
-            setPortraitSpeaking(ui, false);
-          }, 120);
-        }).catch(() => {});
-      }
     }
 
     // Prime media playback on a real user gesture so delayed AI playback
@@ -2002,10 +1940,7 @@
             <section class="single-case-right">
               <div class="single-case-head">
                 <h4 class="single-case-title">实时对话体验</h4>
-                <div class="single-case-head-right">
-                  <span class="live-chip">LIVE DEMO</span>
-                  <button type="button" class="sound-toggle-btn" data-role="soundToggleBtn">点击开启声音</button>
-                </div>
+                <span class="live-chip">LIVE DEMO</span>
               </div>
               <div class="chat-box single-case-chat">
                 <div class="chat-log" data-role="chatLog"></div>
@@ -2028,7 +1963,6 @@
         card,
         portrait: card.querySelector("[data-role='portrait']"),
         personaVideo: card.querySelector("[data-role='personaVideo']"),
-        soundToggleBtn: card.querySelector("[data-role='soundToggleBtn']"),
         chatLog: card.querySelector("[data-role='chatLog']"),
         quickAsks: card.querySelector("[data-role='quickAsks']"),
         chatForm: card.querySelector("[data-role='chatForm']"),
@@ -2038,8 +1972,8 @@
       setQuickAsks(ui.quickAsks, persona.quickAsks);
 
       if (ui.personaVideo) {
-        ui.personaVideo.muted = true;
-        ui.personaVideo.volume = 0;
+        ui.personaVideo.muted = false;
+        ui.personaVideo.volume = 1;
         ui.personaVideo.addEventListener("play", () => setPortraitSpeaking(ui, true));
         ui.personaVideo.addEventListener("ended", () => {
           ui.personaVideo.pause();
@@ -2049,13 +1983,6 @@
         ui.personaVideo.addEventListener("pause", () => {
           if (!ui.personaVideo.ended && ui.personaVideo.currentTime > 0) return;
           setPortraitSpeaking(ui, false);
-        });
-      }
-
-      if (ui.soundToggleBtn) {
-        ui.soundToggleBtn.addEventListener("click", () => {
-          primeVideoPlayback(ui);
-          activateSound(key);
         });
       }
 
